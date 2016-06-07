@@ -7,6 +7,17 @@
     <META http-equiv="Content-Language" content="pl">
 
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 
     <!--[if lt IE 9]>
@@ -17,77 +28,93 @@
 </HEAD>
 
 <BODY>
-    <div id="root">
-        <div id="upper-banner">
-            <div id="upper-info">
-                Tel: 666 666 666 | E-mail: <a href="Example@example.com" target="_top">Example@example.com</a>
-            </div>
-        </div>
-
-        <div id="logo-menu">
-            <div id="logo">
-                <a href="#"><img src="images/logo.png" alt="LOGO" /></a>
-            </div>
-            <div id="menu-contener">
-                <ul id="menu">
-                    <li><a href="index.html">Pozycja 1</a></li>
-                    <li><a href="#">Pozycja 2</a></li>
-                    <li><a href="#">Pozycja 3</a></li>
-                    <li><a href="kontakt.html">Pozycja 4</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div id="slider">SLIDER</div>
-        <!-- TODO: ADD SLIDER -->
-
-        <div id="content">
-            <div id="content-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut sodales risus, nec accumsan ipsum. Maecenas dapibus augue quis nunc congue ornare. Morbi rhoncus, velit laoreet pellentesque feugiat, diam libero aliquam tortor, non cursus quam ex nec nibh. Quisque vel erat porta, condimentum urna sed, tincidunt ipsum. Maecenas id mattis mauris, in varius ipsum. Duis finibus laoreet lectus, vel convallis augue mollis vitae. In nunc ante, mollis vel elementum quis, pellentesque in nisl.
-                <br>
-                <br> In ullamcorper eros a mi cursus auctor. Vestibulum et ex tincidunt, suscipit magna in, pretium purus. Donec consequat nec urna ut laoreet. Praesent laoreet suscipit velit, vitae lacinia lorem porta quis. Phasellus nec velit tincidunt, iaculis nibh eu, vestibulum lacus. Mauris quis odio quis nisi rhoncus dignissim in sed dolor. Donec ex erat, posuere sodales augue eget, fermentum varius nunc. Duis maximus lacinia vehicula.
-                <br>
-                <br> Ut a tellus interdum, pulvinar enim ut, commodo turpis. Aliquam pellentesque sagittis lectus, vel convallis nisi lacinia non. Mauris maximus condimentum ligula. Donec eleifend placerat tincidunt. Vivamus in vulputate neque. Nulla facilisi. Nam ut convallis lectus, non suscipit nibh. Vivamus consequat vestibulum metus. Integer magna lacus, consequat eget est quis, bibendum imperdiet risus. Praesent in nibh vel sapien maximus venenatis vel eget tellus. Maecenas consectetur congue enim in sollicitudin. Integer at urna sit amet lacus accumsan tempor. Nullam augue massa, malesuada sed massa sed, mattis feugiat arcu. Donec sed orci eros. Aliquam tincidunt purus at justo eleifend rutrum.
-
-            </div>
-        </div>
-        <div id="footer">
-            <div class="bottom-contener">
-                <div class="bottom-description-info">Szybkie menu</div>
-                <ul id="menu-bottom">
-                    <li><a href="index.html">Pozycja 1</a></li>
-                    <li><a href="#">Pozycja 2</a></li>
-                    <li><a href="#">Pozycja 3</a></li>
-                    <li><a href="kontakt.html">Pozycja 4</a></li>
-                </ul>
-            </div>
-
-            <div class="bottom-contener">
-                <div class="bottom-description-info">Kontakt</div>
-                <div id="info-bottom">
-                    Tel: 666 666 666
-                    <br> E-mail: <a href="Example@example.com" target="_top">Example@example.com</a>
-                </div>
-            </div>
-
-            <div class="bottom-contener">
-                <div class="bottom-description-info">O nas</div>
-                <div id="info-bottom">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut sodales risus, nec accumsan ipsum.
-                </div>
-            </div>
-
-            <div class="bottom-contener">
-                <div class="bottom-description-info">Galeria</div>
-                <div id="info-bottom">
-                    <center>GALERIA
-                        <!-- TODO: ADD GALERY -->
-                    </center>
-                </div>
-            </div>
-        </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+       
+      </ul>
+     
+     
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>
+
+  
+<section id="jumbotron">
+	<div id="jumbotron-text">
+
+		<p id="name">AUTO SERWIS</p>
+        <p id="cv">Przeglądy techniczne</br>Mechanika pojazdu</p>
+	</div>
+</section>  
+<div id="asphalt">
+<h2>NASZE USŁUGI</h2>
+<div id="row1">
+  <div class="col-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula. Fusce dignissim diam vel libero lobortis pharetra. Pellentesque sem mauris, maximus quis nisl vitae, facilisis accumsan dui. Donec laoreet ipsum in nisi feugiat, sit amet congue velit pulvinar. In elementum ultrices nulla viverra accumsan. Ut vulputate ultrices nisi vitae vestibulum. Aliquam accumsan auctor mollis. Donec consequat turpis a erat rutrum ultrices. </div>
+  <div class="col-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula. Fusce dignissim diam vel libero lobortis pharetra. Pellentesque sem mauris, maximus quis nisl vitae, facilisis accumsan dui. Donec laoreet ipsum in nisi feugiat, sit amet congue velit pulvinar. In elementum ultrices nulla viverra accumsan. Ut vulputate ultrices nisi vitae vestibulum. Aliquam accumsan auctor mollis. Donec consequat turpis a erat rutrum ultrices. </div>
+  <div class="col-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula. Fusce dignissim diam vel libero lobortis pharetra. Pellentesque sem mauris, maximus quis nisl vitae, facilisis accumsan dui. Donec laoreet ipsum in nisi feugiat, sit amet congue velit pulvinar. In elementum ultrices nulla viverra accumsan. Ut vulputate ultrices nisi vitae vestibulum. Aliquam accumsan auctor mollis. Donec consequat turpis a erat rutrum ultrices. </div>
+</div>
+</div>
+
+<div id="gallery">
+    <h2>GALERIA</h2>
+    <center><img src="images/w_budowie.jpg"/></center>
+</div>
+<dic id="about">
+<h2>O NAS</h2>
+<div id="aboutUS">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula. Fusce dignissim diam vel libero lobortis pharetra. Pellentesque sem mauris, maximus quis nisl vitae, facilisis accumsan dui. Donec laoreet ipsum in nisi feugiat, sit amet congue velit pulvinar. In elementum ultrices nulla viverra accumsan. Ut vulputate ultrices nisi vitae vestibulum. Aliquam accumsan auctor mollis. Donec consequat turpis a erat rutrum ultrices.</div>
+</div>
+
+<div id="contact">
+    <div id="content">
+            <div class="container">
+                <form id="contact" action="" method="post">
+                    <h3>Szybki kontakt</h3>
+                    <h4>Napisz do nas, odpowiemy Ci w ciągu 24 godzin.</h4>
+                    <fieldset>
+                        <input placeholder="Imię i Nazwisko" type="text" tabindex="1" required>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Adres E-mail" type="email" tabindex="2" required>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Numer telefotu" type="tel" tabindex="3" required>
+                    </fieldset>
+                    <fieldset>
+                        <textarea placeholder="Wpisz swoją widadomość tutaj..." tabindex="5" required></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Wysyłanie">Wyślij</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+</div>
+<div id="footer">
+       <div id=footer-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula.  
+    </div> 
+        </div>
 </BODY>
 
 </HTML>

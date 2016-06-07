@@ -10,167 +10,112 @@ a {
 }
 
 body {
+    padding-top: 70px; 
     height: 100%;
     max-height: 1000px;
     min-height: 1000px;
     background: #ececec;
-    font-family: Helvetica, sans-serif;
-    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
 }
 
-#root {
-    position: relative;
-    min-height: 100%;
+.navbar .navbar-collapse {
+  text-align: center;
+}
+#jumbotron{
+    margin-top:-20px;
+	background: url('../images/engine.jpg') no-repeat;
+	background-size: cover;
+	background-position: center top;
+	width: 100%;
+	height: 95vh;
+	display: table;
+}
+#jumbotron-text{
+	font-family: 'Fjalla One';
+	color: #F5F5F5;
+	text-align: center;
+	line-height: 9vw;
+	display: table-cell;
+	vertical-align: middle;
+}
+#jumbotron-text #name{
+	font-size: 10vw;
+}
+#jumbotron-text #cv{
+	font-size: 5vw;
+}
+#asphalt{
+	background: url('../images/asphalt.jpg') no-repeat;
+    background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 50vh;
+	display: table;
+}
+#asphalt h2{
+    text-align: center;
+    font-size: 1vw;
+    padding: 20px;
+    color: white;
+}
+#row1{
+    color:white;
+    width:50%;
     margin: 0 auto;
-    width: 980px;
-    background: #FFF;
+    height: 300px;
 }
-
-#upper-banner a {
-    color: #626262;
+#gallery{
+  	background-color: white;
+    background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 50vh;
+	display: table; 
+    
 }
-
-#upper-banner {
-    height: 20px;
-    background: #F3F3F3;
-    font-size: 14px;
-    text-align: right;
-}
-
-#upper-info {
-    position: relative;
-    right: 10px;
-    top: 3px;
-}
-
-#logo-menu {
-    height: 150px;
-    border-bottom: 3px solid #C9C9C9;
-}
-
-#logo {
-    height: 150px;
-    width: 350px;
-    float: left;
-}
-
-
-/* START: Menu */
-
-#menu-contener {
-    float: left;
-    width: 630px;
-}
-
-#menu {
-    position: relative;
-    padding: 3px 5%;
-    top: 30px;
+#gallery h2, #about h2{
     text-align: center;
-    font-size: 24px;
+    font-size: 2vw;
+    padding: 20px;
+    color: #252525;
 }
-
-#menu li {
-    display: inline;
-    border-right: 1px solid gray;
-    padding: 0 10px;
+#about{
+  	background: url('../images/bg1.png');
+    background-attachment: fixed;
+	
+	background-position: center;
+	width: 100%;
+	height: 50vh;
+	display: table;  
 }
-
-#menu a {
-    color: #666;
-    font: bold 0.8em Arial, sans-serif;
-    text-decoration: none;
-}
-
-#menu a:hover {
-    color: #333;
-}
-
-
-/* END: Navbar */
-
-
-/* START: Landing page */
-
-#slider {
-    height: 190px;
-    ;
-    text-align: center;
-    font-size: 100px;
-    background: #666;
-}
-
-#content {
+#aboutUS{
+    border-radius:10px 10px 10px 10px;
+    font-size: 1vw;
+    margin: 0 auto;
+    padding: 20px;
+    height: 350px;
     width: 600px;
-    max-height: 615px;
-    margin: 0 auto;
-    padding: 10px;
+    background-color: white;
 }
-
-#content-text {
-    text-align: center;
-    color: #3C3C3C;
-    letter-spacing: 1px;
-    line-height: 20px;
-    font-size: 16px;
+#contact{
+  	background-color: #AEAEAE;
+    background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 50vh;
+	display: table; 
+    padding: 25px;
+    margin: 50px 0;
+    
 }
-
-/* END: Landing page */
-
-
-/* START: Footer */
-
-#footer {
-    background: #666;
-    width: 100%;
-    height: 100px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.bottom-contener {
-    width: 240px;
-    height: 100px;
-    float: left;
-}
-
-#menu-bottom a {
-    color: #DEDEDE;
-}
-
-#menu-bottom a:hover {
-    color: #DEDEDE;
-    text-decoration: underline;
-}
-
-#menu-bottom {
-    position: relative;
-    top: -10px;
-    list-style-type: none;
-}
-
-#info-bottom {
-    position: relative;
-    top: 15px;
-    color: #DEDEDE;
-}
-
-#info-bottom a {
-    color: #C6C6C6;
-}
-
-.bottom-description-info {
-    text-align: center;
-    padding: 5px;
-    color: #DEDEDE;
-    font-weight: bold;
-}
-
-/* END: Footer */
-
-
-/* START: Contact */
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 #contact input[type="text"],
@@ -181,10 +126,6 @@ body {
     font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-#contact {
-    padding: 25px;
-    margin: 50px 0;
-}
 
 #contact h3 {
     display: block;
@@ -262,4 +203,16 @@ fieldset {
     border: 1px solid #999;
 }
 
-/* END: Contact */
+#footer {
+    position: relative;
+    top:-50px;
+  	background-color: #555;
+	width: 100%;
+	height: 30vh;
+}
+#footer-content{
+    color:white;
+    text-align: center;
+    padding: 30px;
+}
+
