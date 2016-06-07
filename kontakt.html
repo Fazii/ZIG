@@ -7,6 +7,7 @@
     <META http-equiv="Content-Language" content="pl">
 
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 
     <!--[if lt IE 9]>
@@ -36,20 +37,30 @@
                     <li><a href="kontakt.html">Pozycja 4</a></li>
                 </ul>
             </div>
-
         </div>
 
-        <div id="slider">SLIDER</div>
-        <!-- TODO: ADD SLIDER -->
 
         <div id="content">
-            <div id="content-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut sodales risus, nec accumsan ipsum. Maecenas dapibus augue quis nunc congue ornare. Morbi rhoncus, velit laoreet pellentesque feugiat, diam libero aliquam tortor, non cursus quam ex nec nibh. Quisque vel erat porta, condimentum urna sed, tincidunt ipsum. Maecenas id mattis mauris, in varius ipsum. Duis finibus laoreet lectus, vel convallis augue mollis vitae. In nunc ante, mollis vel elementum quis, pellentesque in nisl.
-                <br>
-                <br> In ullamcorper eros a mi cursus auctor. Vestibulum et ex tincidunt, suscipit magna in, pretium purus. Donec consequat nec urna ut laoreet. Praesent laoreet suscipit velit, vitae lacinia lorem porta quis. Phasellus nec velit tincidunt, iaculis nibh eu, vestibulum lacus. Mauris quis odio quis nisi rhoncus dignissim in sed dolor. Donec ex erat, posuere sodales augue eget, fermentum varius nunc. Duis maximus lacinia vehicula.
-                <br>
-                <br> Ut a tellus interdum, pulvinar enim ut, commodo turpis. Aliquam pellentesque sagittis lectus, vel convallis nisi lacinia non. Mauris maximus condimentum ligula. Donec eleifend placerat tincidunt. Vivamus in vulputate neque. Nulla facilisi. Nam ut convallis lectus, non suscipit nibh. Vivamus consequat vestibulum metus. Integer magna lacus, consequat eget est quis, bibendum imperdiet risus. Praesent in nibh vel sapien maximus venenatis vel eget tellus. Maecenas consectetur congue enim in sollicitudin. Integer at urna sit amet lacus accumsan tempor. Nullam augue massa, malesuada sed massa sed, mattis feugiat arcu. Donec sed orci eros. Aliquam tincidunt purus at justo eleifend rutrum.
-
+            <div class="container">
+                <form id="contact" action="" method="post">
+                    <h3>Szybki kontakt</h3>
+                    <h4>Napisz do nas, odpowiemy Ci w ciągu 24 godzin.</h4>
+                    <fieldset>
+                        <input placeholder="Imię i Nazwisko" type="text" tabindex="1" required autofocus>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Adres E-mail" type="email" tabindex="2" required>
+                    </fieldset>
+                    <fieldset>
+                        <input placeholder="Numer telefotu" type="tel" tabindex="3" required>
+                    </fieldset>
+                    <fieldset>
+                        <textarea placeholder="Wpisz swoją widadomość tutaj..." tabindex="5" required></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <button name="submit" type="submit" id="contact-submit" data-submit="...Wysyłanie">Wyślij</button>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <div id="footer">
