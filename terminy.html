@@ -29,9 +29,23 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel='stylesheet' href='css/fullcalendar.css' />
+    <link rel='stylesheet' href='css/fullcalendar.css'/>
     <script src='lib/moment.min.js'></script>
     <script src='lib/fullcalendar.js'></script>
+
+
+    <script>
+    $(document).ready(function() {
+        $('#calendar-air-conditioner').fullCalendar({
+
+        })
+        $('#calendar-garage').fullCalendar({
+
+        })
+    });
+
+
+    </script>
 
 </HEAD>
 
@@ -64,12 +78,19 @@
     </div>
 </nav>
 
+<section id="calendars" class="container">
+    <div class="row">
+        <div id='calendar-air-conditioner' class="col-lg-6"></div>
+        <div id='calendar-garage' class="col-lg-6"></div>
+    </div>
+</section>
 
 <section id="footer">
     <div id=footer-content>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula.
     </div>
 </section>
+
 </BODY>
 
 </HTML>
