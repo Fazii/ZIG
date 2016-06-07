@@ -52,26 +52,45 @@
             hiddenDays: [0],
             header:{
                 right: 'month, agendaWeek'
-            }
-        })
-        $('#calendar-garage').fullCalendar({
-            defaultView: 'agendaWeek',
-            minTime: "06:00:00",
-            maxTime: "22:00:00",
-            firstDay: 1,
-            businessHours:{
-                start: '7:00',
-                end: '20:00',
-                dow: [ 1, 2, 3, 4, 5, 6 ]
             },
-            height: "auto",
-            lang: "pl",
-            hiddenDays: [0]
+            allDayDefault: false,
+            events: [
+                {
+                    title: 'Zajęte',
+                    start: '2016-06-08T07:00:00',
+                    end: '2016-06-08T08:00:00'
+                },
+                {
+                    title: 'Zajęte',
+                    start: '2016-06-08T12:00:00',
+                    end: '2016-06-08T13:00:00'
+                },
+                {
+                    title: 'Zajęte',
+                    start: '2016-06-08T19:00:00',
+                    end: '2016-06-08T20:00:00'
+                },
+                {
+                    title: 'Zajęte',
+                    start: '2016-06-10T11:00:00',
+                    end: '2016-06-10T12:00:00'
+                },
+                {
+                    title: 'Zajęte',
+                    start: '2016-06-11T12:00:00',
+                    end: '2016-06-11T13:00:00'
+                },
+            ],
+            color: 'yellow',   // an option!
+            textColor: 'black' // an option!
         })
     });
 
 
+
     </script>
+    <!--TODO zmiana kalendarzy-->
+    <!--TODO możliwość zamówienia wizyty w klikniętym terminie-->
 
 </HEAD>
 
@@ -105,9 +124,30 @@
 </nav>
 
 <section id="calendars" class="container">
+    <div class="row" id="slots-description">
+        <div class="col-lg-12">
+            W warsztacie znajdują się dwa stanowiska:
+            <ul>
+                <li>stanowisko do serwisowania klimatyzacji</li>
+                <li>stanowisko do ogólnych napraw oraz montażu instalacji gazowej</li>
+            </ul>
+
+            Prace mogą być prowadzone niezależnie od siebie na tych dwóch stanowiskach, dlatego nawet jeśl chcą państwo
+            dokonać prac serwisowych przy klimatyzacji, to proszę się nie sugerować terminarzem dla stanowiska ogólnego.
+        </div>
+    </div>
     <div class="row">
-        <div id='calendar-air-conditioner' class="col-lg-6"></div>
-        <div id='calendar-garage' class="col-lg-6"></div>
+        <div class="col-lg-12">
+            <div id="slots-picker">
+                <div id="slots-picker-title">Stanowisko:</div>
+                </br>
+                <button type="button" id="ogolne-button">OGÓLNE</button>
+                <button type="button" id="klimatyzacja-button">KLIMATYZACJA</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id='calendar-air-conditioner' class="col-lg-12"></div>
     </div>
 </section>
 
