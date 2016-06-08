@@ -10,7 +10,7 @@ a {
 }
 
 body {
-    padding-top: 70px; 
+    padding-top: 70px;
     height: 100%;
     max-height: 1000px;
     min-height: 1000px;
@@ -18,102 +18,115 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-section{
-    padding-bottom:20px;
+section {
+    padding-bottom: 20px;
 }
-.navbar{
-    font-size:1.5vh;
+
+.navbar {
+    font-size: 1.5vh;
 }
+
 .navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
 }
 
 .navbar .navbar-collapse {
-  text-align: center;
-}
-#jumbotron{
-    margin-top:-20px;
-	background: url('../images/engine.jpg') no-repeat;
-	background-size: cover;
-	background-position: center top;
-	width: 100%;
-	height: 95vh;
-	display: table;
-}
-#jumbotron-text{
-	font-family: 'Oswald', sans-serif;;
-	color: #F5F5F5;
-	text-align: center;
-	line-height: 9vw;
-	display: table-cell;
-	vertical-align: middle;
-        text-shadow: 4px 4px 6px #2B2B2B;
-}
-#jumbotron-text #name{
-	font-size: 10vw;
-
-}
-#jumbotron-text #cv{
-	font-size: 5vw;
-}
-#asphalt{
-	background: url('../images/asphalt.jpg') no-repeat;
-    background-attachment: fixed;
-	background-size: cover;
-	background-position: center;
-	width: 100%;
-	height: 50vh;
-	display: table;
     text-align: center;
 }
-#asphalt h2{
+
+#jumbotron {
+    margin-top: -20px;
+    background: url('../images/engine.jpg') no-repeat;
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    height: 95vh;
+    display: table;
+}
+
+#jumbotron-text {
+    font-family: 'Oswald', sans-serif;
+    ;
+    color: #F5F5F5;
+    text-align: center;
+    line-height: 9vw;
+    display: table-cell;
+    vertical-align: middle;
+    text-shadow: 4px 4px 6px #2B2B2B;
+}
+
+#jumbotron-text #name {
+    font-size: 10vw;
+}
+
+#jumbotron-text #cv {
+    font-size: 5vw;
+}
+
+#asphalt {
+    background: url('../images/asphalt.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 50vh;
+    display: table;
+    text-align: center;
+}
+
+#asphalt h2 {
     font-family: 'Oswald', sans-serif;
     text-align: center;
     font-size: 2vw;
     padding-top: 40px;
     color: white;
 }
-#row1{
-    color:white;
-    width:50%;
+
+#row1 {
+    color: white;
+    width: 50%;
     margin: 0 auto;
     padding: 10px;
     height: auto;
     font-size: 1vw;
     font-family: 'Open Sans Condensed', sans-serif;
 }
-.media-object{
+
+.media-object {
     margin: 0 auto;
     padding: 5px;
 }
-#gallery{
-  	background-color: white;
-	width: 100%;
-	height: 50vh;
-	display: table; 
-    
+
+#gallery {
+    background-color: white;
+    width: 100%;
+    height: 50vh;
+    display: table;
 }
-#gallery h2, #about h2{
+
+#gallery h2,
+#about h2 {
     font-family: 'Oswald', sans-serif;
     text-align: center;
     font-size: 2vw;
-     padding-top: 40px;
+    padding-top: 40px;
     color: #252525;
 }
-#about{
-  	background: url('../images/bg1.png');
+
+#about {
+    background: url('../images/bg1.png');
     background-attachment: fixed;
-	background-position: center;
-	width: 100%;
-	height: 50vh;
-	display: table; 
-    
+    background-position: center;
+    width: 100%;
+    height: 50vh;
+    display: table;
 }
-#aboutUS{
+
+#aboutUS {
     font-family: 'Open Sans Condensed', sans-serif;
-    border-radius:10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
     font-size: 1.2vw;
     margin: 0 auto;
     padding: 20px;
@@ -121,17 +134,16 @@ section{
     width: 600px;
     background-color: white;
     text-align: center;
-    
-
 }
-.contact{
-  	background-color: #AEAEAE;
+
+.contact {
+    background-color: #AEAEAE;
     background-attachment: fixed;
-	background-size: cover;
-	background-position: center;
-	width: 100%;
-	height: 50vh;
-	display: table; 
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 50vh;
+    display: table;
     padding: 25px;
 }
 
@@ -143,7 +155,6 @@ section{
 .contact button[type="submit"] {
     font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
 }
-
 
 .contact h3 {
     display: block;
@@ -223,15 +234,15 @@ fieldset {
 
 #footer {
     position: relative;
-  	background-color: #555;
-	width: 100%;
-	height: 30px;
-}
-#footer-content{
-    font-family: 'Open Sans Condensed', sans-serif;
-    color:white;
-    text-align: center;
-    padding: 5px;
-    font-size:0.8vw;
+    background-color: #555;
+    width: 100%;
+    height: 30px;
 }
 
+#footer-content {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8vw;
+}
