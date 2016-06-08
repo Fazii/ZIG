@@ -21,6 +21,9 @@ body {
 section{
     padding-bottom:20px;
 }
+.navbar{
+    font-size:1.5vh;
+}
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -40,15 +43,17 @@ section{
 	display: table;
 }
 #jumbotron-text{
-	font-family: 'Fjalla One';
+	font-family: 'Oswald', sans-serif;;
 	color: #F5F5F5;
 	text-align: center;
 	line-height: 9vw;
 	display: table-cell;
 	vertical-align: middle;
+        text-shadow: 4px 4px 6px #2B2B2B;
 }
 #jumbotron-text #name{
 	font-size: 10vw;
+
 }
 #jumbotron-text #cv{
 	font-size: 5vw;
@@ -61,11 +66,13 @@ section{
 	width: 100%;
 	height: 50vh;
 	display: table;
+    text-align: center;
 }
 #asphalt h2{
+    font-family: 'Oswald', sans-serif;
     text-align: center;
-    font-size: 1vw;
-    padding: 20px;
+    font-size: 2vw;
+    padding-top: 40px;
     color: white;
 }
 #row1{
@@ -73,6 +80,7 @@ section{
     width:50%;
     margin: 0 auto;
     height: 300px;
+    font-size: 0.8vw;
 }
 #gallery{
   	background-color: white;
@@ -85,19 +93,20 @@ section{
     
 }
 #gallery h2, #about h2{
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     font-size: 2vw;
-    padding: 20px;
+     padding-top: 40px;
     color: #252525;
 }
 #about{
   	background: url('../images/bg1.png');
     background-attachment: fixed;
-	
 	background-position: center;
 	width: 100%;
 	height: 50vh;
-	display: table;  
+	display: table; 
+    
 }
 #aboutUS{
     border-radius:10px 10px 10px 10px;
@@ -107,6 +116,9 @@ section{
     height: 350px;
     width: 600px;
     background-color: white;
+    text-align: center;
+    
+
 }
 .contact{
   	background-color: #AEAEAE;
@@ -117,8 +129,6 @@ section{
 	height: 50vh;
 	display: table; 
     padding: 25px;
-    margin: 50px 0;
-    
 }
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
