@@ -1264,3 +1264,6 @@ be a descendant of the grid when it is being dragged.
 .btn{
    font-size: 0.8vw; 
 }
+#slots-picker{
+text-align: center;
+}
