@@ -30,8 +30,9 @@
     <script src='lib/fullcalendar.js'></script>
     <script src='lib/pl.js'></script>
 
-
+    <script src='js/dbConnection.js'></script>
     <script>
+
         $(document).ready(function () {
             $('#calendar-air-conditioner').fullCalendar({
                 defaultView: 'agendaWeek',
@@ -50,37 +51,19 @@
                     right: 'month, agendaWeek'
                 },
                 allDayDefault: false,
-                events: [
-                    {
-                        title: 'Zajęte',
-                        start: '2016-06-08T07:00:00',
-                        end: '2016-06-08T08:00:00'
-                },
-                    {
-                        title: 'Zajęte',
-                        start: '2016-06-08T12:00:00',
-                        end: '2016-06-08T13:00:00'
-                },
-                    {
-                        title: 'Zajęte',
-                        start: '2016-06-08T19:00:00',
-                        end: '2016-06-08T20:00:00'
-                },
-                    {
-                        title: 'Zajęte',
-                        start: '2016-06-10T11:00:00',
-                        end: '2016-06-10T12:00:00'
-                },
-                    {
-                        title: 'Zajęte',
-                        start: '2016-06-11T12:00:00',
-                        end: '2016-06-11T13:00:00'
-                },
-            ],
-                color: 'yellow', // an option!
-                textColor: 'black' // an option!
+                color: 'yellow',
+                textColor: 'black'
             })
         });
+    </script>
+    <script>
+        function callbackEcho(responseJson){
+            var json = JSON.parse(responseJson);
+            $('#calendar-air-conditioner').fullCalendar('addEventSource', json);
+        }
+    </script>
+    <script>
+            getEvents('klimatyzacje', callbackEcho);
     </script>
     <!--TODO zmiana kalendarzy-->
     <!--TODO możliwość zamówienia wizyty w klikniętym terminie-->
