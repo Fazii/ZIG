@@ -7,118 +7,192 @@
     <META http-equiv="Content-Language" content="pl">
     <script src='lib/jquery.min.js'></script>
 
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.css">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
-          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <link href='https://fonts.googleapis.com/css?family=Oswald:700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script>$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 750);
-        return false;
-      }
-    }
-  });
-});</script>
+    <script>
+        $(function () {
+            $('a[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 750);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
 </HEAD>
 
 <BODY id="top">
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Auto Serwis</a>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand active" href="index.html">Auto Serwis</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#top">Start<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#asphalt">Usługi</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#about">O nas</a></li>
+                        <li><a href="#footer">Kontakt</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="terminy.html">Terminy</a></li>
+
+                    </ul>
+                </div>
+
             </div>
+        </div>
+    </nav>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#top">Start<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#asphalt">Usługi</a></li>
-                    <li><a href="#gallery">Galeria</a></li>
-                    <li><a href="#about">O nas</a></li>
-                    <li><a href="#footer">Kontakt</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-        <li><a href="terminy.html">Terminy</a></li>
-        
-      </ul>
+
+    <section id="jumbotron">
+        <div id="jumbotron-text">
+
+            <p id="name">AUTO SERWIS</p>
+            <p id="cv">Przeglądy techniczne</br>Mechanika pojazdu</p>
+        </div>
+    </section>
+    <div id="asphalt">
+        <h2>NASZE USŁUGI</h2>
+        <div id="row1">
+            <div class="col-md-4">
+                <img class="media-object hidden-xs hidden-sm " src="images/rep1.png" alt="rep1"> Mechanika ogólna wszystkich marek samochodów. Elektronika i elektryka pojazdowa. Wymiany oleju i filtrów. Przeglądy okresowe. Montaż radioodbiorników i sprzętu audio.
             </div>
-            
+            <div class="col-md-4">
+                <img class="media-object hidden-xs hidden-sm" src="images/rep2.png" alt="rep2"> Montaż samochodowych instalacji LPG wszystkich typów. Montaż instalacji CNG. Naprawy i regulacje wszystkich typów instalacji Auto-Gaz.
+            </div>
+            <div class="col-md-4">
+                <img class="media-object hidden-xs hidden-sm" src="images/rep3.png" alt="rep1"> Napełnianie klimatyzacji samochodowej. Diagnostyka klimatyzacji. Naprawa klimatyzacji samochodowej. Przeglądy klimatyzaji samochodowej. Dezynfekcja klimatyzacji samochodowej.
+            </div>
         </div>
     </div>
-</nav>
 
+    <div id="gallery">
+        <h2>GALERIA</h2>
+        <div class="container">
 
-<section id="jumbotron">
-    <div id="jumbotron-text">
-
-        <p id="name">AUTO SERWIS</p>
-        <p id="cv">Przeglądy techniczne</br>Mechanika pojazdu</p>
-    </div>
-</section>
-<div id="asphalt">
-    <h2>NASZE USŁUGI</h2>
-    <div id="row1">
-        <div class="col-md-4">
-              <img class="media-object" src="images/rep1.png" alt="rep1">
-              Mechanika ogólna wszystkich marek samochodów. Elektronika i elektryka pojazdowa. Wymiany oleju i filtrów. Przeglądy okresowe. Montaż radioodbiorników i sprzętu audio.
+            <!-- The container for the list of example images -->
+            <div id="links">
+                <a href="images/example.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/example.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/example.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/example.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+                <a href="images/rep3.png" title="rep" data-gallery>
+                    <img src="images/example.png" alt="rep">
+                </a>
+            </div>
+            <br>
         </div>
-        <div class="col-md-4">
-           <img class="media-object" src="images/rep2.png" alt="rep2">
-           Montaż samochodowych instalacji LPG wszystkich typów. Montaż instalacji CNG. Naprawy i regulacje wszystkich typów instalacji Auto-Gaz.
+        <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+        <div id="blueimp-gallery" class="blueimp-gallery">
+            <!-- The container for the modal slides -->
+            <div class="slides"></div>
+            <!-- Controls for the borderless lightbox -->
+            <h3 class="title"></h3>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="close">×</a>
+            <a class="play-pause"></a>
+            <ol class="indicator"></ol>
+            <!-- The modal dialog, which will be used to wrap the lightbox content -->
+            <div class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body next"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left prev">
+                                <i class="glyphicon glyphicon-chevron-left"></i> Previous
+                            </button>
+                            <button type="button" class="btn btn-primary next">
+                                Next
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-           <img class="media-object" src="images/rep3.png" alt="rep1">
-           Napełnianie klimatyzacji samochodowej. Diagnostyka klimatyzacji. Naprawa klimatyzacji samochodowej. Przeglądy klimatyzaji samochodowej. Dezynfekcja klimatyzacji samochodowej.
-        </div>
-    </div>
-</div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- Bootstrap JS is not required, but included for the responsive demo navigation and button states -->
+        <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+        <script src="js/bootstrap-image-gallery.js"></script>
 
-<div id="gallery">
-    <h2>GALERIA</h2>
-    <center><img src="images/w_budowie.jpg"/></center>
-</div>
-<div id="about">
-    <h2>O NAS</h2>
-    <div id="aboutUS">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend
-        vehicula. Fusce dignissim diam vel libero lobortis pharetra. Pellentesque sem mauris, maximus quis nisl vitae,
-        facilisis accumsan dui. Donec laoreet ipsum in nisi feugiat, sit amet congue velit pulvinar. In elementum
-        ultrices nulla viverra accumsan. Ut vulputate ultrices nisi vitae vestibulum. Aliquam accumsan auctor mollis.
-        Donec consequat turpis a erat rutrum ultrices.
     </div>
+    <div id="about">
+        <h2>O NAS</h2>
+        <div id="aboutUS">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula. Fusce dignissim diam vel libero lobortis pharetra. Pellentesque sem mauris, maximus quis nisl vitae, facilisis accumsan dui. Donec laoreet ipsum in nisi feugiat, sit amet congue velit pulvinar. In elementum ultrices nulla viverra accumsan. Ut vulputate ultrices nisi vitae vestibulum. Aliquam accumsan auctor mollis. Donec consequat turpis a erat rutrum ultrices.
+        </div>
     </div>
 
     <div class="contact">
