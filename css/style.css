@@ -80,7 +80,12 @@ section{
     width:50%;
     margin: 0 auto;
     height: 300px;
-    font-size: 0.8vw;
+    font-size: 1vw;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.media-object{
+    margin: 0 auto;
+    padding: 5px;
 }
 #gallery{
   	background-color: white;
@@ -109,8 +114,9 @@ section{
     
 }
 #aboutUS{
+    font-family: 'Open Sans Condensed', sans-serif;
     border-radius:10px 10px 10px 10px;
-    font-size: 1vw;
+    font-size: 1.2vw;
     margin: 0 auto;
     padding: 20px;
     height: 350px;
@@ -224,8 +230,10 @@ fieldset {
 	height: 30px;
 }
 #footer-content{
+    font-family: 'Open Sans Condensed', sans-serif;
     color:white;
     text-align: center;
     padding: 5px;
+    font-size:0.8vw;
 }
 
