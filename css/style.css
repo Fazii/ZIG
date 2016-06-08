@@ -1,3 +1,9 @@
+*{
+ -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
 html,
 body {
     margin: 0;
@@ -126,7 +132,6 @@ section {
 
 #aboutUS {
     font-family: 'Open Sans Condensed', sans-serif;
-    border-radius: 10px 10px 10px 10px;
     font-size: 1.2vw;
     margin: 0 auto;
     padding: 20px;
