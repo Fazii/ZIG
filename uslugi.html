@@ -36,8 +36,8 @@
 </HEAD>
 
 <BODY id="top">
-    
-     <nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,7 +53,7 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                          <li><a href="index.html">Start</a></li>
+                        <li><a href="index.html">Start</a></li>
                         <li><a href="index.html#asphalt">Oferta</a></li>
                         <li><a href="index.html#gallery">Galeria</a></li>
                         <li><a href="index.html#about">O nas</a></li>
@@ -61,7 +61,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="terminy.html">Terminy</a></li>
-                        <li  class="active"><a href="uslugi.html">Usługi</a></li>
+                        <li class="active"><a href="uslugi.html">Usługi</a></li>
 
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
     </nav>
-    
+
 
     <div class="col-lg-12">
         <div id="akordeon">
@@ -83,34 +83,76 @@
                             <label for="usr">Szukaj usługi: </label>
                             <input type="text" placeholder="Wpisz nazwę usługi..." name="search" class="form-control" id="search" data-type="accordion-search">
                         </div>
-                        
-                        
+
+
+<!--
                         <div class="form-group">
                             <label for="sel1">Filtruj usługi:</label>
                             <select class="form-control" name="filter" id="filter" data-type="accordion-filter">
-                       <option value="default">Wszystko</option>
-                            <option value="type1">Mechanika</option>
-                            <option value="type2">Instalacja LPG</option>
-                            <option value="type3">Klimatyzacja</option>
+                                <option value="default">Wszystko</option>
+                                <option value="type1">Mechanika</option>
+                                <option value="type2">Instalacja LPG</option>
+                                <option value="type3">Klimatyzacja</option>
                             </select>
                         </div>
+-->
 
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default" data-type="accordion-section" data-filter="type1">
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-type="accordion-section-title">
-                      Usługa #1 - XX zł
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" data-type="accordion-section-title">
+                      Serwis #1
                     </a>
                   </h4>
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body accordion-content" data-type="accordion-section-body">
-                                        <ul>
-                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                        </ul>
+                                        <!--  -->
+
+                                        <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-default" data-type="accordion-section" data-filter="type1">
+                                                <div class="panel-heading" role="tab" id="headingOne1">
+                                                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1" data-type="accordion-section-title">
+                      Usługa #1 - XXzł
+                    </a>
+                  </h4>
+                                                </div>
+                                                <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                                    <div class="panel-body accordion-content" data-type="accordion-section-body">
+                                                        <ul>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="panel panel-default" data-type="accordion-section" data-filter="type1">
+                                                <div class="panel-heading" role="tab" id="headingOne2">
+                                                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2" data-type="accordion-section-title">
+                      Usługa #2 - XXzł
+                    </a>
+                  </h4>
+                                                </div>
+                                                <div id="collapseOne2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne2">
+                                                    <div class="panel-body accordion-content" data-type="accordion-section-body">
+                                                        <ul>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--                                        -->
                                     </div>
                                 </div>
                             </div>
@@ -118,13 +160,59 @@
                                 <div class="panel-heading" role="tab" id="headingTwo">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-type="accordion-section-title">
-                        Usługa #2 - XX zł
+                        Serwis #2
                     </a>
                   </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body accordion-content" data-type="accordion-section-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula.
+          
+<!--                                        -->
+                                   
+                                                                           <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-default" data-type="accordion-section" data-filter="type1">
+                                                <div class="panel-heading" role="tab" id="headingTwo1">
+                                                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1" data-type="accordion-section-title">
+                      Usługa #1 - XXzł
+                    </a>
+                  </h4>
+                                                </div>
+                                                <div id="collapseTwo1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo1">
+                                                    <div class="panel-body accordion-content" data-type="accordion-section-body">
+                                                        <ul>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="panel panel-default" data-type="accordion-section" data-filter="type1">
+                                                <div class="panel-heading" role="tab" id="headingTwo2">
+                                                    <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2" data-type="accordion-section-title">
+                      Usługa #2 - XXzł
+                    </a>
+                  </h4>
+                                                </div>
+                                                <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
+                                                    <div class="panel-body accordion-content" data-type="accordion-section-body">
+                                                        <ul>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   
+<!--                                   -->
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +220,7 @@
                                 <div class="panel-heading" role="tab" id="headingThree">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" data-type="accordion-section-title">
-                      Usługa #3 - XX zł
+                      Serwis #3
                     </a>
                   </h4>
                                 </div>
@@ -146,7 +234,7 @@
                                 <div class="panel-heading" role="tab" id="headingFour">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" data-type="accordion-section-title">
-                      Usługa #4 - XX zł
+                      Serwis #4
                     </a>
                   </h4>
                                 </div>
@@ -161,7 +249,7 @@
                                 <div class="panel-heading" role="tab" id="headingFive">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" data-type="accordion-section-title">
-                      Usługa #5 - XX zł
+                      Serwis #6
                     </a>
                   </h4>
                                 </div>
@@ -176,7 +264,7 @@
                                 <div class="panel-heading" role="tab" id="headingSix">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" data-type="accordion-section-title">
-                      Usługa #6 - XX zł
+                      Serwis #6
                     </a>
                   </h4>
                                 </div>
@@ -191,7 +279,7 @@
                                 <div class="panel-heading" role="tab" id="headingSeven">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" data-type="accordion-section-title">
-                      Usługa #7 - XX zł
+                      Serwis #7
                     </a>
                   </h4>
                                 </div>
@@ -206,7 +294,7 @@
                                 <div class="panel-heading" role="tab" id="headingEight">
                                     <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" data-type="accordion-section-title">
-                      Usługa #8 - XX zł
+                      Serwis #8
                     </a>
                   </h4>
                                 </div>
