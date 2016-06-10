@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css" />
 
 
-     <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -36,32 +36,31 @@
                     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
                     if (target.length) {
                         $('html, body').animate({
-                            scrollTop: target.offset().top-40
+                            scrollTop: target.offset().top - 40
                         }, 750);
                         return false;
                     }
                 }
             });
         });
-        
+
         $(document).ready(function () {
-    $('.nav li a').click(function(e) {
+            $('.nav li a').click(function (e) {
 
-        $('.nav li').removeClass('active');
+                $('.nav li').removeClass('active');
 
-        var $parent = $(this).parent();
-        if (!$parent.hasClass('active')) {
-            $parent.addClass('active');
-        }
-        //e.preventDefault();
-    });
-});
+                var $parent = $(this).parent();
+                if (!$parent.hasClass('active')) {
+                    $parent.addClass('active');
+                }
+                //e.preventDefault();
+            });
+        });
     </script>
 </HEAD>
 
 <BODY id="top">
-   
-   
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="container-fluid">
@@ -79,13 +78,14 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#top">Start<span class="sr-only">(current)</span></a></li>
-                        <li><a href="#asphalt">Usługi</a></li>
+                        <li><a href="#asphalt">Oferta</a></li>
                         <li><a href="#gallery">Galeria</a></li>
                         <li><a href="#about">O nas</a></li>
                         <li><a href="#footer">Kontakt</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="terminy.html">Terminy</a></li>
+                        <li><a href="uslugi.html">Usługi</a></li>
 
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
         </div>
     </section>
     <div id="asphalt">
-        <h2>NASZE USŁUGI</h2>
+        <h2>OFERTA</h2>
         <div id="row1">
             <div class="col-md-4">
                 <img class="media-object hidden-xs hidden-sm " src="images/rep1.png" alt="rep1"> Mechanika ogólna wszystkich marek samochodów. Elektronika i elektryka pojazdowa. Wymiany oleju i filtrów. Przeglądy okresowe. Montaż radioodbiorników i sprzętu audio.
@@ -120,7 +120,7 @@
     <div id="gallery">
         <h2>GALERIA</h2>
 
-       
+
     </div>
     <div id="about">
         <h2>O NAS</h2>
@@ -152,11 +152,6 @@
                     </fieldset>
                 </form>
             </div>
-        </div>
-    </div>
-    <div id="footer">
-        <div id=footer-content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales erat ultrices eleifend vehicula.
         </div>
     </div>
 </BODY>
