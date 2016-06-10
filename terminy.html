@@ -32,7 +32,6 @@
 
     <script src='js/dbConnection.js'></script>
     <script>
-
         $(document).ready(function () {
             $('#calendar-air-conditioner').fullCalendar({
                 defaultView: 'agendaWeek',
@@ -59,14 +58,24 @@
     <script>
         function callbackEcho(responseJson){
             var json = JSON.parse(responseJson);
+            $('#calendar-air-conditioner').fullCalendar('removeEvents');
             $('#calendar-air-conditioner').fullCalendar('addEventSource', json);
         }
     </script>
     <script>
             getEvents('klimatyzacje', callbackEcho);
     </script>
-    <!--TODO zmiana kalendarzy-->
-    <!--TODO możliwość zamówienia wizyty w klikniętym terminie-->
+    <script>
+        $(document).ready(function(){
+            $('#ogolne-button').click(function(){
+                getEvents('ogolne', callbackEcho);
+            });
+            $('#klimatyzacje-button').click(function(){
+                getEvents('klimatyzacje', callbackEcho);
+            });
+        });
+    </script>
+    <!--TODO ???? możliwość zamówienia wizyty w klikniętym terminie ???? -->
 
 </HEAD>
 
@@ -126,10 +135,10 @@
                     </br>
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default">Ogólne</button>
+                            <button type="button" class="btn btn-default" id="ogolne-button">Ogólne</button>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default">Klimatyzacja</button>
+                            <button type="button" class="btn btn-default" id="klimatyzacje-button">Klimatyzacja</button>
                         </div>
                     </div>
                 </br>
