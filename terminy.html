@@ -47,7 +47,8 @@
                 lang: "pl",
                 hiddenDays: [0],
                 header: {
-                    right: 'month, agendaWeek'
+                    left:  'today prev,next',
+                    right: 'agendaWeek, month'
                 },
                 allDayDefault: false
             })
@@ -130,15 +131,9 @@
                 <div id="slots-picker">
                     <div id="slots-picker-title">Wybierz stanowisko</div>
                     </br>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default" id="ogolne-button">Ogólne</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default" id="klimatyzacje-button">Klimatyzacja</button>
-                        </div>
-                    </div>
-                </br>
+                    <button type="button" class="btn btn-primary btn-xl" id="ogolne-button">Ogólne</button>
+                    <button type="button" class="btn btn-primary btn-xl" id="klimatyzacje-button">Klimatyzacja</button>
+                    </br>
                 </div>
             </div>
         </div>
