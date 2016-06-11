@@ -13,6 +13,7 @@ body {
 
 a {
     text-decoration: none;
+    outline: 0 !important;
 }
 
 body {
@@ -106,7 +107,7 @@ section {
 }
 
 #gallery {
-    background-color: white;
+    background-color: #F5F5F5;
     width: 100%;
     height: 50vh;
     display: table;
@@ -118,7 +119,7 @@ section {
     text-align: center;
     font-size: 2vw;
     padding-top: 10px;
-    color: #252525;
+    color: #212121;
 }
 
 #about {
@@ -135,9 +136,9 @@ section {
     font-size: 1.2vw;
     margin: 0 auto;
     padding: 20px;
-    height: 350px;
-    width: 600px;
-    background-color: white;
+    height: 10vw;
+    width: 40vw;
+    background-color: #F5F5F5;
     text-align: center;
 }
 
@@ -186,8 +187,8 @@ fieldset {
 .contact input[type="tel"],
 .contact textarea {
     width: 100%;
-    border: 1px solid #CCC;
-    background: #FFF;
+    border: 1px solid #F5F5F5;
+    background: #F5F5F5;
     margin: 0 0 5px;
     padding: 10px;
 }
@@ -214,7 +215,7 @@ fieldset {
     width: 100px;
     border: none;
     background: #CDDC39;
-    color: #F5F5F5;
+    color: #212121;
     margin: 0 0 5px;
     padding: 10px;
     font-size: 15px;
@@ -240,9 +241,13 @@ fieldset {
 
 #footer-content {
     font-family: 'Open Sans Condensed', sans-serif;
-    color: white;
-    text-align: center;
+    color: #F5F5F5;
     padding: 5px;
     font-size: 0.8vw;
+    text-align: center;
 }
+
+:focus {outline:none !important;}
+::-moz-focus-inner {border:0 !important;}
+
 
