@@ -11,3 +11,16 @@ function getEvents(calendar, callbackFunc){
         }
     }
 }
+
+function postEvent(calendar, eventID, start, end, title, callbackFunc){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/postEvents.php?calendar="+calendar+"&ID="+eventID+"&start="+start+"&end="+end+"&title="+title, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            callbackFunc(response);
+        }
+    }
+}

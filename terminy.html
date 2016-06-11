@@ -33,7 +33,7 @@
     <script src='js/dbConnection.js'></script>
     <script>
         $(document).ready(function () {
-            $('#calendar-air-conditioner').fullCalendar({
+            $('#calendar-element').fullCalendar({
                 defaultView: 'agendaWeek',
                 minTime: "06:00:00",
                 maxTime: "22:00:00",
@@ -49,17 +49,15 @@
                 header: {
                     right: 'month, agendaWeek'
                 },
-                allDayDefault: false,
-                color: 'yellow',
-                textColor: 'black'
+                allDayDefault: false
             })
         });
     </script>
     <script>
         function callbackEcho(responseJson){
             var json = JSON.parse(responseJson);
-            $('#calendar-air-conditioner').fullCalendar('removeEvents');
-            $('#calendar-air-conditioner').fullCalendar('addEventSource', json);
+            $('#calendar-element').fullCalendar('removeEvents');
+            $('#calendar-element').fullCalendar('addEventSource', json);
         }
     </script>
     <script>
@@ -145,7 +143,7 @@
             </div>
         </div>
         <div class="row">
-            <div id='calendar-air-conditioner' class="col-lg-12"></div>
+            <div id='calendar-element' class="col-lg-12"></div>
         </div>
     </section>
 
