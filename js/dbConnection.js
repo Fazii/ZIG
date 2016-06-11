@@ -24,3 +24,16 @@ function postEvent(calendar, eventID, start, end, title, callbackFunc){
         }
     }
 }
+
+function deleteEvent(calendar, eventID, callbackFunc){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/deleteEvents.php?calendar="+calendar+"&ID="+eventID, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            callbackFunc(response);
+        }
+    }
+}

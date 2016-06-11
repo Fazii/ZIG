@@ -49,6 +49,9 @@
         function postEventCallback(response){
             console.log(response);
         }
+        function deleteEventCallback(response){
+            console.log(response);
+        }
     </script>
 
     <!--TODO add green notification that changes are saved when postEventCallback fires-->
@@ -79,6 +82,15 @@
             }
             $newEventName = input.value;
             $changed = true;
+            $popOver.popover('destroy');
+            $popOver = null;
+            $currentEvent = null;
+            $changed = false;
+        }
+
+        function removeEvent(){
+            var eventID = $currentEvent.id;
+            deleteEvent($currentTable, eventID, deleteEventCallback);
         }
 
         function onEventClick(event, jsEvent, view){
@@ -88,7 +100,10 @@
                 placement: 'top',
                 container: 'body',
 
-                content: '<input type="text" onkeyup="handleEventNameInput(this)" value=" ' + event.title + ' ">',
+                content: `
+                    <input class="form-control" type="text" onkeyup="handleEventNameInput(this)" value=" ` + event.title + ` ">
+                    <button type="button" class="btn btn-info btn-lg" style="margin-top: 10px; width: 100%;" onclick="removeEvent()"><span class="glyphicon glyphicon-trash"></span> Usuń </a>
+                    `,
             });
 
             if($popOver == null){
@@ -117,7 +132,7 @@
 
         <!--TODO popover for title-->
         function onSelect ( start, end, jsEvent, view){
-            var eventID = -1;
+            var eventID = 'NULL';
             var eventStart = start.format('YYYY-MM-DD HH:mm:ss');
             var eventEnd = end.format('YYYY-MM-DD HH:mm:ss');
             var eventTitle = 'Placeholder';
