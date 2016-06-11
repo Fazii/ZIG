@@ -1,4 +1,3 @@
-
 a {
     text-decoration: none;
     outline: 0 !important;
@@ -9,8 +8,17 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-section {
-    padding-bottom: 20px;
+section{
+    padding-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.navbar-spacer{
+    height: 50px;
 }
 
 .navbar {
@@ -28,7 +36,6 @@ section {
 }
 
 #jumbotron {
-    margin-top: -20px;
     background: url('../images/engine.jpg') no-repeat;
     background-size: cover;
     background-position: center top;
@@ -39,7 +46,6 @@ section {
 
 #jumbotron-text {
     font-family: 'Oswald', sans-serif;
-    ;
     color: #F5F5F5;
     text-align: center;
     line-height: 9vw;
@@ -56,33 +62,24 @@ section {
     font-size: 5vw;
 }
 
-#asphalt {
-    background: url('../images/asphalt.jpg') no-repeat;
+#offer {
+    background: url('../images/asphalt.jpg') repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 50vh;
     display: table;
     text-align: center;
-}
-
-#asphalt h2 {
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    font-size: 2vw;
-    padding-top: 10px;
     color: #F5F5F5;
-}
-
-#row1 {
-    color: #F5F5F5;
-    width: 50%;
-    margin: 0 auto;
-    padding: 10px;
     height: auto;
     font-size: 1vw;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+#offer .row {
+    margin: 0 auto;
+    width: 70%;
 }
 
 .media-object {
@@ -90,145 +87,77 @@ section {
     padding: 5px;
 }
 
-#gallery {
-    background-color: #F5F5F5;
-    width: 100%;
-    height: 50vh;
-    display: table;
-}
-
-#gallery h2,
-#about h2 {
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    font-size: 2vw;
-    padding-top: 10px;
-    color: #212121;
-}
-
 #about {
     background: url('../images/bg1.png');
     background-attachment: fixed;
     background-position: center;
     width: 100%;
-    height: 50vh;
     display: table;
 }
 
 #aboutUS {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1.2vw;
     margin: 0 auto;
-    padding: 20px;
-    height: 10vw;
-    width: 40vw;
     background-color: #F5F5F5;
     text-align: center;
 }
 
-.contact {
+#contact{
     background-color: #B6B6B6;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 50vh;
-    display: table;
-    padding: 25px;
+    line-height: 31px;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
-.contact input[type="text"],
-.contact input[type="email"],
-.contact input[type="tel"],
-.contact textarea,
-.contact button[type="submit"] {
-    font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+#contact h3{
+    text-align: center;
+    color: #fff;
 }
 
-.contact h3 {
-    display: block;
-    font-size: 30px;
-    font-weight: 400;
+#contact-left{
 }
 
-.contact h4 {
-    margin: 5px 0 15px;
-    display: block;
-    font-size: 13px;
+#contact-box{
+    background-color: #9A9A9A;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 6px;
+    border: 2px solid #CDDC39;
 }
 
-fieldset {
-    border: medium none !important;
-    margin: 0 0 10px;
-    min-width: 100%;
-    padding: 0;
-    width: 100%;
-}
-
-.contact input[type="text"],
-.contact input[type="email"],
-.contact input[type="tel"],
-.contact textarea {
-    width: 100%;
-    border: 1px solid #F5F5F5;
-    background: #F5F5F5;
-    margin: 0 0 5px;
-    padding: 10px;
-}
-
-.contact input[type="text"]:hover,
-.contact input[type="email"]:hover,
-.contact input[type="tel"]:hover,
-.contact input[type="url"]:hover,
-.contact textarea:hover {
-    -webkit-transition: border-color 0.3s ease-in-out;
-    -moz-transition: border-color 0.3s ease-in-out;
-    transition: border-color 0.3s ease-in-out;
-    border: 1px solid #AAA;
-}
-
-.contact textarea {
-    height: 100px;
-    max-width: 100%;
-    resize: none;
-}
-
-.contact button[type="submit"] {
-    cursor: pointer;
-    width: 100px;
-    border: none;
-    background: #CDDC39;
-    color: #212121;
-    margin: 0 0 5px;
-    padding: 10px;
-    font-size: 15px;
-}
-
-
-.contact button[type="submit"]:active {
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.contact input:focus,
-.contact textarea:focus {
-    outline: 0;
-    border: 1px solid #999;
+#contact-right{
+    padding-top: 15px;
 }
 
 #footer {
-    position: relative;
     background-color: #616161;
-    width: 100%;
-    height: 30px;
+    height: 25px;
+    padding: 0px;
 }
 
 #footer-content {
     font-family: 'Open Sans Condensed', sans-serif;
     color: #F5F5F5;
-    padding: 5px;
-    font-size: 0.8vw;
+    font-size: 12px;
+    line-height: 25px;
     text-align: center;
+}
+
+#slots-description{
+    margin-top: 30px;
+    font-size: 18px;
+    border-bottom: 2px solid #CDDC39;
+}
+#slots-description #exclamation{
+    font-size: 100px;
+    text-align: center;
+    color: #CDDC39;
+}
+
+#akordeon{
+    margin-top: 30px;
 }
 
 :focus {outline:none !important;}

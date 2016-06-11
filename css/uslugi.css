@@ -17,10 +17,7 @@
 #accordion .panel-title > a.accordion-toggle.collapsed::before, #accordion a.collapsed[data-toggle="collapse"]::before  {
     content:"\e114";
 }
-#akordeon{
-    width: 790px;
-    margin-left: auto ;
-    margin-right: auto;
+#main{
     background-color: #F7F7F7;
 }
 

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<HTML>
+<html>
 
-<HEAD>
+<head>
     <META charset="UTF8">
     <META http-equiv="Content-type" content="text/html; charset=iso-8859-2">
     <META http-equiv="Content-Language" content="pl">
     <script src='lib/jquery.min.js'></script>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
 
-    <!-- Optional theme -->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
-
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
@@ -25,7 +24,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel='stylesheet' href='css/fullcalendar.css' />
+    <link rel='stylesheet' href='css/fullcalendar.css'/>
     <script src='lib/moment.min.js'></script>
     <script src='lib/fullcalendar.js'></script>
     <script src='lib/pl.js'></script>
@@ -35,6 +34,7 @@
         $(document).ready(function () {
             $('#calendar-element').fullCalendar({
                 defaultView: 'agendaWeek',
+                allDaySlot: false,
                 minTime: "06:00:00",
                 maxTime: "22:00:00",
                 firstDay: 1,
@@ -53,6 +53,11 @@
                 allDayDefault: false
             })
         });
+
+
+
+
+
     </script>
     <script>
         function callbackEcho(responseJson){
@@ -60,9 +65,19 @@
             $('#calendar-element').fullCalendar('removeEvents');
             $('#calendar-element').fullCalendar('addEventSource', json);
         }
+
+
+
+
+
     </script>
     <script>
             getEvents('klimatyzacje', callbackEcho);
+
+
+
+
+
     </script>
     <script>
         $(document).ready(function(){
@@ -73,77 +88,89 @@
                 getEvents('klimatyzacje', callbackEcho);
             });
         });
+
+
+
+
+
     </script>
     <!--TODO ???? możliwość zamówienia wizyty w klikniętym terminie ???? -->
-</HEAD>
+</head>
 
-<BODY>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Auto Serwis</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Start</a></li>
-                        <li><a href="index.html#asphalt">Oferta</a></li>
-                        <li><a href="index.html#gallery">Galeria</a></li>
-                        <li><a href="index.html#about">O nas</a></li>
-                        <li><a href="index.html#footer">Kontakt</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="terminy.html">Terminy<span class="sr-only">(current)</span></a></li>
-                        <li><a href="uslugi.html">Usługi</a></li>
-
-                    </ul>
-                </div>
-
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Auto Serwis</a>
             </div>
-        </div>
-    </nav>
 
-    <section id="calendars" class="container">
-        <div class="row" id="slots-description">
-            <div class="col-lg-12">
-               <div id="description">
-                W warsztacie znajdują się dwa stanowiska:
-                <ul>
-                    <li>stanowisko do serwisowania klimatyzacji</li>
-                    <li>stanowisko do ogólnych napraw oraz montażu instalacji gazowej</li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html#top">Start<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="terminy.html">Terminy</a></li>
+                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="index.html#contact">Kontakt</a></li>
                 </ul>
-
-                Prace mogą być prowadzone niezależnie od siebie na tych dwóch stanowiskach, dlatego nawet jeśl chcą państwo dokonać prac serwisowych przy klimatyzacji, to proszę się nie sugerować terminarzem dla stanowiska ogólnego.
-                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div id="slots-picker">
-                    <div id="slots-picker-title">Wybierz stanowisko</div>
-                    </br>
-                    <button type="button" class="btn btn-primary btn-xl" id="ogolne-button">Ogólne</button>
-                    <button type="button" class="btn btn-primary btn-xl" id="klimatyzacje-button">Klimatyzacja</button>
-                    </br>
-                </div>
+    </div>
+</nav>
+
+<div class="navbar-spacer"></div>
+
+<section class="container" id="slots-description">
+    <div class="row">
+        <div class="col-lg-9" id="description">
+            W warsztacie znajdują się dwa stanowiska:
+            <ul>
+                <li>stanowisko do serwisowania klimatyzacji</li>
+                <li>stanowisko do ogólnych napraw oraz montażu instalacji gazowej</li>
+            </ul>
+
+            Prace mogą być prowadzone niezależnie od siebie na dwóch stanowiskach, dlatego jeśli zainteresowani są
+            państwo usługami z zakresu serwisowania klimatyzaji, proszę się nie sugerować terminarzem dla
+            stanowiska ogólnego oraz vice versa.
+        </div>
+
+        <div class="col-lg-3" id="exclamation">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+        </div>
+    </div>
+</section>
+
+<section id="calendars" class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="slots-picker">
+                <div id="slots-picker-title"><h2>Wybierz stanowisko</h2></div>
+                </br>
+                <button type="button" class="btn btn-primary btn-xl" id="ogolne-button">Ogólne</button>
+                <button type="button" class="btn btn-primary btn-xl" id="klimatyzacje-button">Klimatyzacja</button>
+                </br>
             </div>
         </div>
-        <div class="row">
-            <div id='calendar-element' class="col-lg-12"></div>
-        </div>
-    </section>
+    </div>
+    </div>
+    <div class="row">
+        <div id='calendar-element' class="col-lg-12"></div>
+    </div>
+</section>
 
+<section id="footer">
+    <div id=footer-content>
+        Copyright © 2016 | Created by: KN&KF
+    </div>
+</section>
 
+</body>
 
-</BODY>
-
-</HTML>
+</html>
