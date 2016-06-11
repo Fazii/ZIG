@@ -234,8 +234,17 @@ fieldset {
 :focus {outline:none !important;}
 ::-moz-focus-inner {border:0 !important;}
 
+#page-content-wrapper{
+    padding-top: 0px !important;
+    margin-top: 0px;
+}
+
 #slots-picker{
+    text-align: center;
     margin: 20px;
+}
+#slots-picker h2{
+    margin-top: 0px;
 }
 
 #slots-picker .btn{
