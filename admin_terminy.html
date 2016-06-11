@@ -51,6 +51,8 @@
         }
     </script>
 
+    <!--TODO add green notification that changes are saved when postEventCallback fires-->
+    <!--TODO reload after changes-->
     <script>
         var $currentTable = 'klimatyzacje';
         var $popOver = null;
@@ -113,19 +115,55 @@
             $currentEvent = event;
         }
 
+        <!--TODO popover for title-->
+        function onSelect ( start, end, jsEvent, view){
+            var eventID = -1;
+            var eventStart = start.format('YYYY-MM-DD HH:mm:ss');
+            var eventEnd = end.format('YYYY-MM-DD HH:mm:ss');
+            var eventTitle = 'Placeholder';
+            postEvent($currentTable, eventID, eventStart, eventEnd, eventTitle, postEventCallback);
+        }
+
+        function onEventDrop( event, delta, revertFunc, jsEvent, ui, view ) {
+            var eventID = event.id;
+            var eventStart = event.start.format('YYYY-MM-DD HH:mm:ss');
+            var eventEnd = event.end.format('YYYY-MM-DD HH:mm:ss');
+            var eventTitle = event.title;
+            postEvent($currentTable, eventID, eventStart, eventEnd, eventTitle, postEventCallback);
+        }
+
+        function onEventResize( event, delta, revertFunc, jsEvent, ui, view ) {
+            var eventID = event.id;
+            var eventStart = event.start.format('YYYY-MM-DD HH:mm:ss');
+            var eventEnd = event.end.format('YYYY-MM-DD HH:mm:ss');
+            var eventTitle = event.title;
+            postEvent($currentTable, eventID, eventStart, eventEnd, eventTitle, postEventCallback);
+        }
+
     </script>
 
     <script>
         $(document).ready(function () {
             $('#calendar-element').fullCalendar({
-                //selecting event
                 editable: true,
+
+                //selecting new event
+                selectable: true,
                 selectHelper: true,
-                allDayDefault: false,
+                select: onSelect,
+
+                //changing eventTitle
                 eventClick: onEventClick,
+
+                //changing event start
+                eventDrop: onEventDrop,
+
+                //changing event duration
+                eventResize: onEventResize,
 
                 //calendar settings
                 defaultView: 'agendaWeek',
+                allDayDefault: false,
                 allDaySlot: false,
                 minTime: "06:00:00",
                 maxTime: "22:00:00",
