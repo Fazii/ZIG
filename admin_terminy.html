@@ -207,11 +207,19 @@
             $('#ogolne-button').click(function(){
                 $currentTable = 'ogolne';
                 getEvents($currentTable, getEventsCallback);
+                $popOver.popover('destroy');
+                $popOver = null;
+                $currentEvent = null;
+                $changed = false;
             });
 
             $('#klimatyzacje-button').click(function(){
                 $currentTable = 'klimatyzacje';
                 getEvents($currentTable, getEventsCallback);
+                $popOver.popover('destroy');
+                $popOver = null;
+                $currentEvent = null;
+                $changed = false;
             });
 
         });
