@@ -45,22 +45,11 @@
             });
         });
 
-        $(document).ready(function () {
-            $('.nav li a').click(function (e) {
 
-                $('.nav li').removeClass('active');
-
-                var $parent = $(this).parent();
-                if (!$parent.hasClass('active')) {
-                    $parent.addClass('active');
-                }
-                //e.preventDefault();
-            });
-        });
     </script>
 </HEAD>
 
-<BODY id="top">
+<BODY id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
