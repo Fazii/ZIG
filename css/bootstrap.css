@@ -4494,7 +4494,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: 0;
   }
 }
-
 .navbar-inverse {
   background-color: #212121;
   border-color: #cddc39;
@@ -4504,7 +4503,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #212121;
+  color: #CDDC39;
 }
 .navbar-inverse .navbar-text {
   color: #b6b6b6;
