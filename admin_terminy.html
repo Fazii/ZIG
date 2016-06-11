@@ -9,12 +9,12 @@
 
     <title>Panel Administracyjny</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
 
     <script src='lib/jquery.min.js'></script>
 
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="css/bootstrap.css" >
+    <link rel="stylesheet" href="css/bootstrap.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
@@ -47,6 +47,7 @@
         var $newEventName = null;
         var $currentEvent = null;
         var $changed = false;
+
     </script>
 
     <!--callbacks for db interactions-->
@@ -64,6 +65,7 @@
         function deleteEventCallback(response){
             getEvents($currentTable, getEventsCallback);
         }
+
     </script>
 
     <!--TODO add green notification that changes are saved when postEventCallback fires-->
@@ -108,7 +110,7 @@
 
                 content: `
                     <input class="form-control" type="text" onkeyup="handleEventNameInput(this)" value=" ` + event.title + ` ">
-                    <button type="button" class="btn btn-info btn-lg" style="margin-top: 10px; width: 100%;" onclick="removeEvent()"><span class="glyphicon glyphicon-trash"></span> Usuń </a>
+                    <button type="button" class="btn btn-info btn-md" style="margin-top: 10px; width: 100%;" onclick="removeEvent()"><span class="glyphicon glyphicon-trash"></span> Usuń </a>
                     `,
             });
 
@@ -161,6 +163,7 @@
             var eventTitle = event.title;
             postEvent($currentTable, eventID, eventStart, eventEnd, eventTitle, postEventCallback);
         }
+
 
     </script>
 
@@ -229,6 +232,7 @@
             });
 
         });
+
     </script>
 
 </head>
@@ -241,12 +245,10 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
-                    Panel Administracyjny
-                </a>
+                <h4>Panel Administracyjny</h4>
             </li>
             <li>
-                <a  href="admin_cennik.html">Modyfikuj usługi</a>
+                <a href="admin_cennik.html">Modyfikuj usługi</a>
             </li>
             <li>
                 <a class="active" href="admin_terminy.html">Podgląd i edycja terminarza</a>
@@ -264,7 +266,8 @@
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
-    <button href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+    <button href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span
+            class="glyphicon glyphicon-menu-hamburger"></span></button>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -275,7 +278,8 @@
                         <div id="slots-picker-title"><h2>Wybierz stanowisko</h2></div>
                         </br>
                         <button type="button" class="btn btn-primary btn-xl" id="ogolne-button">Ogólne</button>
-                        <button type="button" class="btn btn-primary btn-xl" id="klimatyzacje-button">Klimatyzacja</button>
+                        <button type="button" class="btn btn-primary btn-xl" id="klimatyzacje-button">Klimatyzacja
+                        </button>
                         </br>
                     </div>
                 </div>
@@ -297,6 +301,7 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
 
 </script>
 

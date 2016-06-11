@@ -254,3 +254,8 @@ fieldset {
 .fc-event{
     border-radius: 3px;
 }
+
+.sidebar-brand{
+    text-aligh: center;
+    color: #fff;
+}
