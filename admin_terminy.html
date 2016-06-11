@@ -39,30 +39,35 @@
 
     <script src='js/dbConnection.js'></script>
 
-    <!--callbacks for db interactions-->
-    <script>
-        function getEventsCallback(responseJson){
-            var json = JSON.parse(responseJson);
-            $('#calendar-element').fullCalendar('removeEvents');
-            $('#calendar-element').fullCalendar('addEventSource', json);
-        }
-        function postEventCallback(response){
-            console.log(response);
-        }
-        function deleteEventCallback(response){
-            console.log(response);
-        }
-    </script>
-
-    <!--TODO add green notification that changes are saved when postEventCallback fires-->
-    <!--TODO reload after changes-->
+    <!--variables-->
     <script>
         var $currentTable = 'klimatyzacje';
         var $popOver = null;
         var $newEventName = null;
         var $currentEvent = null;
         var $changed = false;
+    </script>
 
+    <!--callbacks for db interactions-->
+    <script>
+        function getEventsCallback(responseJson){
+            var json = JSON.parse(responseJson);
+            $('#calendar-element').fullCalendar('removeEvents');
+            $('#calendar-element').fullCalendar('addEventSource', json);
+            console.log("test");
+        }
+        function postEventCallback(response){
+            getEvents($currentTable, getEventsCallback);
+            console.log(response);
+        }
+        function deleteEventCallback(response){
+            getEvents($currentTable, getEventsCallback);
+        }
+    </script>
+
+    <!--TODO add green notification that changes are saved when postEventCallback fires-->
+    <!--TODO reload after changes-->
+    <script>
         function updateEventName(){
             var eventID = $currentEvent.id;
             var eventStart = $currentEvent.start.format('YYYY-MM-DD HH:mm:ss');
@@ -82,15 +87,15 @@
             }
             $newEventName = input.value;
             $changed = true;
-            $popOver.popover('destroy');
-            $popOver = null;
-            $currentEvent = null;
-            $changed = false;
         }
 
         function removeEvent(){
             var eventID = $currentEvent.id;
             deleteEvent($currentTable, eventID, deleteEventCallback);
+            $popOver.popover('destroy');
+            $popOver = null;
+            $currentEvent = null;
+            $changed = false;
         }
 
         function onEventClick(event, jsEvent, view){
@@ -135,8 +140,9 @@
             var eventID = 'NULL';
             var eventStart = start.format('YYYY-MM-DD HH:mm:ss');
             var eventEnd = end.format('YYYY-MM-DD HH:mm:ss');
-            var eventTitle = 'Placeholder';
+            var eventTitle = 'Zajęte';
             postEvent($currentTable, eventID, eventStart, eventEnd, eventTitle, postEventCallback);
+            $('#calendar-element').fullCalendar('unselect');
         }
 
         function onEventDrop( event, delta, revertFunc, jsEvent, ui, view ) {
