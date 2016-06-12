@@ -31,6 +31,11 @@
                     addCategoryElement(category, elem.elementNazwa, elem.cena);
                 });
             });
+
+            sortCategories();
+            var collapsible = $('#services-list').collapsibleList('.header',{
+                animate: true
+            });
         }
         function postEventCallback(response){
             getEvents($currentTable, getEventsCallback);
@@ -108,9 +113,10 @@
         }
 
         function addCategoryElement(category, elementName, elementPrice){
-            var correspondingUl = category.next();
-            console.log($categoryElementTemplate({elementName: elementName, elementPrice: $counter}));
-            correspondingUl.append($categoryElementTemplate({elementName: elementName, elementPrice: $counter}));
+            var correspondingUl = category.first().next();
+            var catElement = $categoryElementTemplate({elementName: elementName, elementPrice: elementPrice});
+            console.log(correspondingUl);
+            correspondingUl.append(catElement);
         }
 
         function removeCategoryElement(categoryElementRemoveButton){
@@ -122,10 +128,6 @@
     <script>
         $(document).ready(function () {
             getServices(getServicesCallback);
-            sortCategories();
-            var collapsible = $('#services-list').collapsibleList('.header',{
-                animate: true
-            });
         });
     </script>
 

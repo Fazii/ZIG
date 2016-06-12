@@ -84,8 +84,10 @@
         }
 
         function addCategoryElement(category, elementName, elementPrice){
-            var correspondingUl = category.next();
-            correspondingUl.append($categoryElementTemplate({elementName: elementName, elementPrice: elementPrice}));
+            var correspondingUl = category.first().next();
+            var catElement = $categoryElementTemplate({elementName: elementName, elementPrice: elementPrice});
+            console.log(correspondingUl);
+            correspondingUl.append(catElement);
         }
     </script>
 
@@ -101,7 +103,7 @@
             })
 
             $.each(headers, function(idx, header) {
-                var items = $(header).next();
+                var items = $(header).next('li');
                 mainUl.append(header);
                 mainUl.append(items);
             });
