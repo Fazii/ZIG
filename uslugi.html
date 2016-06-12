@@ -24,7 +24,27 @@
     <script src="lib/collapsible-list.js"></script>
 
     <script>
+        function sort() {
+            var mainUl = $('#services-list');
+            var headers = mainUl.children('li').get();
+
+            headers.sort(function(a, b) {
+                var compA = $(a).text().toUpperCase();
+                var compB = $(b).text().toUpperCase();
+                return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+            })
+
+            $.each(headers, function(idx, header) {
+                var items = $(header).next();
+                mainUl.append(header);
+                mainUl.append(items);
+            });
+        }
+    </script>
+
+    <script>
         $(document).ready(function () {
+            sort();
             var collapsible = $('#services-list').collapsibleList('.header',{
                 search: $('#search'),
                 animate: true
@@ -85,6 +105,16 @@
                     <ul>
                         <li class="element">Bahamas, The <span class="price">od 666zł</span></li>
                         <li class="element">Bahrain <span class="price">od 666zł</span></li>
+                    </ul>
+                    <li class="header">G</li>
+                    <ul>
+                        <li class="element">123, The <span class="price">od 666zł</span></li>
+                        <li class="element">456 <span class="price">od 666zł</span></li>
+                    </ul>
+                    <li class="header">C</li>
+                    <ul>
+                        <li class="element">asdfasdfasf <span class="price">od 666zł</span></li>
+                        <li class="element">sdfadsfadsfdfdfsfdfsfdasdf <span class="price">od 666zł</span></li>
                     </ul>
                 </ul>
 
