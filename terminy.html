@@ -2,27 +2,18 @@
 <html>
 
 <head>
-    <META charset="UTF8">
-    <META http-equiv="Content-type" content="text/html; charset=iso-8859-2">
-    <META http-equiv="Content-Language" content="pl">
+    <META charset="UTF8"/>
+    <META http-equiv="Content-type" content="text/html; charset=iso-8859-2"/>
+    <META http-equiv="Content-Language" content="pl"/>
     <script src='lib/jquery.min.js'></script>
 
     <link rel="stylesheet" href="css/style.css"/>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
 
     <link rel='stylesheet' href='css/fullcalendar.css'/>
     <script src='lib/moment.min.js'></script>
@@ -53,11 +44,6 @@
                 allDayDefault: false
             })
         });
-
-
-
-
-
     </script>
     <script>
         function callbackEcho(responseJson){
@@ -65,19 +51,9 @@
             $('#calendar-element').fullCalendar('removeEvents');
             $('#calendar-element').fullCalendar('addEventSource', json);
         }
-
-
-
-
-
     </script>
     <script>
             getEvents('klimatyzacje', callbackEcho);
-
-
-
-
-
     </script>
     <script>
         $(document).ready(function(){
@@ -88,13 +64,7 @@
                 getEvents('klimatyzacje', callbackEcho);
             });
         });
-
-
-
-
-
     </script>
-    <!--TODO ???? możliwość zamówienia wizyty w klikniętym terminie ???? -->
 </head>
 
 <body>

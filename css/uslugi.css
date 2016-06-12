@@ -4,25 +4,31 @@
 	padding: 0.4em 0.6em;
     outline: none;
     font-weight:bold;
-    text-decoration: none;
 }
 
-#accordion .panel-title > a.accordion-toggle::before, #accordion a[data-toggle="collapse"]::before  {
-    color: #CDDC39;
-    content:"\e113";
-    float: left;
-    font-family: 'Glyphicons Halflings';
-	margin-right :1em;
+ul {
+    list-style: none;
+    padding: 0;
 }
-#accordion .panel-title > a.accordion-toggle.collapsed::before, #accordion a.collapsed[data-toggle="collapse"]::before  {
-    content:"\e114";
+
+#services-list li{
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px;
 }
+#services-list .header  {
+    background: #CDDC39;
+}
+#services-list .element  {
+    background: #BBBBBB;
+    margin-left: 30px;
+}
+
 #main{
     background-color: #F7F7F7;
 }
 
-.panel-group a{
-    background-color: #F5F5F5;
-    
-}
 
