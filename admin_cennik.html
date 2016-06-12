@@ -111,7 +111,6 @@
             var correspondingUl = category.next();
             console.log($categoryElementTemplate({elementName: elementName, elementPrice: $counter}));
             correspondingUl.append($categoryElementTemplate({elementName: elementName, elementPrice: $counter}));
-            $counter++;
         }
 
         function removeCategoryElement(categoryElementRemoveButton){

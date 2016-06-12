@@ -19,9 +19,67 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="css/uslugi.css"/>
-
     <script src="lib/collapsible-list.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="js/dbConnection.js"></script>
+
+
+    <!--callbacks for db interactions-->
+    <script>
+        function getServicesCallback(responseJson){
+            var json = JSON.parse(responseJson);
+            $.each(json, function(i, cat){
+                var category = addCategory(cat.kategoriaNazwa);
+                $.each(cat.elementy, function(j, elem){
+                    //console.log(elem);
+                    addCategoryElement(category, elem.elementNazwa, elem.cena);
+                });
+            });
+        }
+    </script>
+
+    <script>
+        var $categoryTemplateHTML = `
+            <li class="header"><%= categoryName %></li>
+            <ul>
+            </ul>
+        `;
+        var $categoryElementTemplateHTML = `
+            <li class="element"><%= elementName %> <span class="price> <%= elementPrice %> </span></li>
+        `;
+        var $categoryTemplate = _.template($categoryTemplateHTML);
+        var $categoryElementTemplate = _.template($categoryElementTemplateHTML);
+
+        function sortCategories() {
+            var mainUl = $('#services-list');
+            var headers = mainUl.children('li').get();
+
+            headers.sort(function(a, b) {
+                var compA = $(a).find('.element-name').val().toUpperCase();
+                var compB = $(b).find('.element-name').val().toUpperCase();
+                return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+            })
+
+            $.each(headers, function(idx, header) {
+                var items = $(header).next();
+                mainUl.append(header);
+                mainUl.append(items);
+            });
+        }
+
+        function addCategory(categoryName) {
+            var mainUl = $('#services-list');
+            if(categoryName == null){
+                categoryName = 'Nowa kategoria';
+            }
+            return $($categoryTemplate({categoryName: categoryName})).appendTo(mainUl);
+        }
+
+        function addCategoryElement(category, elementName, elementPrice){
+            var correspondingUl = category.next();
+            correspondingUl.append($categoryElementTemplate({elementName: elementName, elementPrice: elementPrice}));
+        }
+    </script>
 
     <script>
         function sort() {
@@ -44,12 +102,12 @@
 
     <script>
         $(document).ready(function () {
-            sort();
+            getServices(getServicesCallback);
+            sortCategories();
             var collapsible = $('#services-list').collapsibleList('.header',{
-                search: $('#search'),
                 animate: true
             });
-        })
+        });
     </script>
 </head>
 
@@ -96,26 +154,7 @@
                 </div>
 
                 <ul id="services-list">
-                    <li class="header">A</li>
-                    <ul>
-                        <li class="element">Australia<span class="price">od 666zł</span></li>
-                        <li class="element">Austria <span class="price">od 666zł</span></span></li>
-                    </ul>
-                    <li class="header">B</li>
-                    <ul>
-                        <li class="element">Bahamas, The <span class="price">od 666zł</span></li>
-                        <li class="element">Bahrain <span class="price">od 666zł</span></li>
-                    </ul>
-                    <li class="header">G</li>
-                    <ul>
-                        <li class="element">123, The <span class="price">od 666zł</span></li>
-                        <li class="element">456 <span class="price">od 666zł</span></li>
-                    </ul>
-                    <li class="header">C</li>
-                    <ul>
-                        <li class="element">asdfasdfasf <span class="price">od 666zł</span></li>
-                        <li class="element">sdfadsfadsfdfdfsfdfsfdasdf <span class="price">od 666zł</span></li>
-                    </ul>
+
                 </ul>
             </div>
         </div>
