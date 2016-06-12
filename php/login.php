@@ -38,7 +38,7 @@
                 
                 
                 $result->free_result();
-                header('Location: http://localhost/admin_terminy.php');
+                header('Location: http://localhost/admin_cennik.html');
                 
                } else {
                 $_SESSION['error'] ='<div class="alert alert-warning">

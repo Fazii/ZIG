@@ -1,6 +1,7 @@
 <?php
     session_start();
    if ((isset($_SESSION['logged'])) && ($_SESSION['logged']==true)){
+       session_write_close(); 
         header('Location: http://localhost/admin_terminy.php');
         exit();
     }
