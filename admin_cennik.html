@@ -22,8 +22,13 @@
 
     <!--callbacks for db interactions-->
     <script>
+
         function getServicesCallback(responseJson){
             var json = JSON.parse(responseJson);
+            var mainUl = $('#services-list');
+
+            mainUl.empty();
+
             $.each(json, function(i, cat){
                 var category = addCategory(cat.kategoriaNazwa, cat.id);
                 $.each(cat.elementy, function(j, elem){
@@ -32,19 +37,21 @@
             });
             sortCategories();
             var collapsible = $('#services-list').collapsibleList('.header',{
-                animate: true
+                animate: true,
+                defaultCollapsed: false
             });
         }
-        function postEventCallback(response){
+        function postServiceCategoryCallback(response){
             console.log(response);
-            //getEvents($currentTable, getEventsCallback);
-        }
-        function deleteEventCallback(response){
-            //getEvents($currentTable, getEventsCallback);
+            getServices(getServicesCallback);
         }
         function deleteServiceCategoryCallback(response){
             console.log(response);
-            //getEvents($currentTable, getEventsCallback);
+            getServices(getServicesCallback);
+        }
+        function postServiceElementCallback(response){
+            console.log(response);
+            getServices(getServicesCallback);
         }
     </script>
 
@@ -63,7 +70,7 @@
             </ul>
         `;
         var $categoryElementTemplateHTML = `
-            <li class="element" data-category-id="<%= elementID %>">
+            <li class="element" data-element-id="<%= elementID %>">
                 <input type="text" onkeyup="handleEventNameInput(this)" value="<%= elementName %>" class="element-name form-control">
                 <button type="button" class="remove-button btn btn-warning btn-sm" onclick="removeCategoryElement(this)">
                     <span class="glyphicon glyphicon-trash"></span>
@@ -97,15 +104,22 @@
         function updateField(inputField){
             if($(inputField).parent().hasClass('header')){ // categoryName field
                 var id = $(inputField).parent().data('category-id');
-                postServiceCategory(id, $(inputField).val(), postEventCallback);
+                postServiceCategory(id, $(inputField).val(), postServiceCategoryCallback);
             }
             else if($(inputField).parent().hasClass('element')){ // element
+
                 if($(inputField).hasClass('element-name')){ // elementName field
-
+                    var id = $(inputField).parent().data('element-id');
+                    var categoryID = $(inputField).parent().parent().prev().data('category-id');
+                    var priceField = $(inputField).next().next().val();
+                    postServiceElement(id, $(inputField).val(), priceField, categoryID, postServiceElementCallback);
                 }
-                else if($(inputField).hasClass('element-price')){ // elementPrice field
-                    console.log('element price');
 
+                else if($(inputField).hasClass('element-price')){ // elementPrice field
+                    var id = $(inputField).parent().data('element-id');
+                    var categoryID = $(inputField).parent().parent().prev().data('category-id');
+                    var elementNameField = $(inputField).prev().prev().val();
+                    postServiceElement(id, elementNameField, $(inputField).val(), categoryID, postServiceElementCallback);
                 }
             }
         }
@@ -138,8 +152,9 @@
 
         function addNewCategoryElement(categoryElementButton){
             var correspondingUl = $(categoryElementButton).parent().next();
-            $counter++;
-            correspondingUl.prepend($categoryElementTemplate({elementName: 'Nowy element', elementPrice: $counter}));
+            var categoryID = $(categoryElementButton).parent().data('category-id');
+            postServiceElement('', 'Nowy element', '999zl', categoryID, postServiceElementCallback);
+            correspondingUl.prepend($categoryElementTemplate({elementName: 'Nowy element', elementPrice: '999', elementID: ''}));
         }
 
         function addCategoryElement(category, elementName, elementPrice, elementID){

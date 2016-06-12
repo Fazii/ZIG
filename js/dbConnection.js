@@ -61,6 +61,18 @@ function postServiceCategory(id, categoryName, callbackFunc){
         }
     }
 }
+function postServiceElement(id, elementName, cena, categoryID, callbackFunc){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/postServiceElement.php?ID="+id+"&elementName="+elementName+"&cena="+cena+"&categoryID="+categoryID, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            callbackFunc(response);
+        }
+    }
+}
 function deleteServiceCategory(id, callbackFunc){
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "php/deleteServiceCategory.php?ID="+id, true);
