@@ -14,7 +14,7 @@
     <META charset="UTF8">
     <META http-equiv="Content-type" content="text/html; charset=iso-8859-2">
     <META http-equiv="Content-Language" content="pl">
-    <title>Logowanie do panelu administracyjnego</title>
+    <title>Logowanie</title>
     <script src='lib/jquery.min.js'></script>
     <script src="js/jquery.backstretch.min.js"></script>
     <script src="js/scripts.js"></script>
