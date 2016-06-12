@@ -31,7 +31,6 @@
             $.each(json, function(i, cat){
                 var category = addCategory(cat.kategoriaNazwa);
                 $.each(cat.elementy, function(j, elem){
-                    //console.log(elem);
                     addCategoryElement(category, elem.elementNazwa, elem.cena);
                 });
             });
@@ -86,7 +85,6 @@
         function addCategoryElement(category, elementName, elementPrice){
             var correspondingUl = category.first().next();
             var catElement = $categoryElementTemplate({elementName: elementName, elementPrice: elementPrice});
-            console.log(correspondingUl);
             correspondingUl.append(catElement);
         }
     </script>

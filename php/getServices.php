@@ -10,7 +10,7 @@ if ($categoriesResult = $mysqli->query($queryCategories)){
     while($category = $categoriesResult->fetch_assoc()) {
         $elements = array();
         $categoryID = $category['id'];
-        $queryElements = "SELECT elementy.elementNazwa, elementy.cena FROM elementy, kategoria_element WHERE kategoria_element.kategoriaID = $categoryID AND elementy.id = kategoria_element.elementID";
+        $queryElements = "SELECT elementy.id, elementy.elementNazwa, elementy.cena FROM elementy, kategoria_element WHERE kategoria_element.kategoriaID = $categoryID AND elementy.id = kategoria_element.elementID";
 
         if ($elementsResult = $mysqli->query($queryElements)){
             while($element = $elementsResult->fetch_assoc()) {
@@ -18,7 +18,7 @@ if ($categoriesResult = $mysqli->query($queryCategories)){
             }
             $elementsJSON = json_encode($elements);
         }
-        $categories[] = array('kategoriaNazwa' => $category['kategoriaNazwa'], 'elementy' => $elements);
+        $categories[] = array('kategoriaNazwa' => $category['kategoriaNazwa'], 'id' => $categoryID, 'elementy' => $elements);
     }
 }
 $json = json_encode($categories);

@@ -49,3 +49,15 @@ function getServices(callbackFunc){
         }
     }
 }
+function postServiceCategory(id, categoryName, callbackFunc){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/postServiceCategory.php?ID="+id+"&categoryName="+categoryName, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            callbackFunc(response);
+        }
+    }
+}

@@ -25,10 +25,9 @@
         function getServicesCallback(responseJson){
             var json = JSON.parse(responseJson);
             $.each(json, function(i, cat){
-                var category = addCategory(cat.kategoriaNazwa);
+                var category = addCategory(cat.kategoriaNazwa, cat.id);
                 $.each(cat.elementy, function(j, elem){
-                    //console.log(elem);
-                    addCategoryElement(category, elem.elementNazwa, elem.cena);
+                    addCategoryElement(category, elem.elementNazwa, elem.cena, elem.id);
                 });
             });
 
@@ -38,18 +37,18 @@
             });
         }
         function postEventCallback(response){
-            getEvents($currentTable, getEventsCallback);
             console.log(response);
+            //getEvents($currentTable, getEventsCallback);
         }
         function deleteEventCallback(response){
-            getEvents($currentTable, getEventsCallback);
+            //getEvents($currentTable, getEventsCallback);
         }
     </script>
 
     <script>
         var $categoryTemplateHTML = `
-            <li class="header">
-                <input type="text" value="<%= categoryName %>" class="element-name form-control">
+            <li class="header" data-category-id="<%= categoryID %>">
+                <input type="text" onkeyup="handleEventNameInput(this)" value="<%= categoryName %>" class="element-name form-control">
                     <button type="button" class="category-button btn btn-warning btn-sm" onclick="removeCategory(this)">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
@@ -61,18 +60,19 @@
             </ul>
         `;
         var $categoryElementTemplateHTML = `
-            <li class="element">
-                <input type="text" value="<%= elementName %>" class="element-name form-control">
+            <li class="element" data-category-id="<%= elementID %>">
+                <input type="text" onkeyup="handleEventNameInput(this)" value="<%= elementName %>" class="element-name form-control">
                 <button type="button" class="remove-button btn btn-warning btn-sm" onclick="removeCategoryElement(this)">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
-                <input type="text" value="<%= elementPrice %>" class="element-price form-control">
+                <input type="text" onkeyup="handleEventNameInput(this)" value="<%= elementPrice %>" class="element-price form-control">
             </li>
         `;
         var $categoryTemplate = _.template($categoryTemplateHTML);
         var $categoryElementTemplate = _.template($categoryElementTemplateHTML);
 
-        var $counter = 0;
+        var $newEventName = '';
+        var $changed = false;
 
         function sortCategories() {
             var mainUl = $('#services-list');
@@ -91,12 +91,37 @@
             });
         }
 
-        function addCategory(categoryName) {
+        function updateField(inputField){
+            if($(inputField).parent().hasClass('header')){ // categoryName field
+                var id = $(inputField).parent().data('category-id');
+                postServiceCategory(id, $(inputField).val(), postEventCallback);
+            }
+            else if($(inputField).parent().hasClass('element')){ // element
+                if($(inputField).hasClass('element-name')){ // elementName field
+
+                }
+                else if($(inputField).hasClass('element-price')){ // elementPrice field
+                    console.log('element price');
+
+                }
+            }
+        }
+
+        function handleEventNameInput(input){
+            if(event.keyCode == 13 && $changed){
+                updateField(input);
+            }
+            $newEventName = input.value;
+            $changed = true;
+        }
+
+        function addCategory(categoryName, categoryID) {
             var mainUl = $('#services-list');
             if(categoryName == null){
                 categoryName = 'Nowa kategoria';
+                categoryID = '';
             }
-            return $($categoryTemplate({categoryName: categoryName})).appendTo(mainUl);
+            return $($categoryTemplate({categoryName: categoryName, categoryID: categoryID})).appendTo(mainUl);
         }
 
         function removeCategory(categoryRemoveButton){
@@ -112,10 +137,9 @@
             correspondingUl.prepend($categoryElementTemplate({elementName: 'Nowy element', elementPrice: $counter}));
         }
 
-        function addCategoryElement(category, elementName, elementPrice){
+        function addCategoryElement(category, elementName, elementPrice, elementID){
             var correspondingUl = category.first().next();
-            var catElement = $categoryElementTemplate({elementName: elementName, elementPrice: elementPrice});
-            console.log(correspondingUl);
+            var catElement = $categoryElementTemplate({elementName: elementName, elementPrice: elementPrice, elementID: elementID});
             correspondingUl.append(catElement);
         }
 
