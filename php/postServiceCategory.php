@@ -10,8 +10,8 @@ if( isset($_GET['ID']) && isset($_GET['categoryName']) ){
 	$categoryName = mysql_real_escape_string($_GET['categoryName']);
 }
 
-$query = "INSERT INTO kategorie (id, kategoriaNazwa) VALUES ($id, '$categoryName') ";
-$query .= "ON DUPLICATE KEY UPDATE id = $id, kategoriaNazwa = '$categoryName' ";
+$query = "INSERT INTO kategorie (id, kategoriaNazwa) VALUES ('$id', '$categoryName') ";
+$query .= "ON DUPLICATE KEY UPDATE id = '$id', kategoriaNazwa = '$categoryName' ";
 
 $response = $query;
 
