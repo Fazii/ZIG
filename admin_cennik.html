@@ -18,14 +18,37 @@
     <script src="lib/underscore-min.js"></script>
     <script src="lib/collapsible-list.js"></script>
 
+    <script src="js/dbConnection.js"></script>
+
+    <!--callbacks for db interactions-->
+    <script>
+        function getServicesCallback(responseJson){
+            var json = JSON.parse(responseJson);
+            $.each(json, function(i, cat){
+                var category = addCategory(cat.kategoriaNazwa);
+                $.each(cat.elementy, function(j, elem){
+                    //console.log(elem);
+                    addCategoryElement(category, elem.elementNazwa, elem.cena);
+                });
+            });
+        }
+        function postEventCallback(response){
+            getEvents($currentTable, getEventsCallback);
+            console.log(response);
+        }
+        function deleteEventCallback(response){
+            getEvents($currentTable, getEventsCallback);
+        }
+    </script>
+
     <script>
         var $categoryTemplateHTML = `
             <li class="header">
-                <input type="text" value=<%= categoryName %> class="element-name form-control">
+                <input type="text" value="<%= categoryName %>" class="element-name form-control">
                     <button type="button" class="category-button btn btn-warning btn-sm" onclick="removeCategory(this)">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
-                    <button type="button" class="category-button btn btn-warning btn-sm" onclick="addCategoryElement(this)">
+                    <button type="button" class="category-button btn btn-warning btn-sm" onclick="addNewCategoryElement(this)">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
             </li>
@@ -34,15 +57,17 @@
         `;
         var $categoryElementTemplateHTML = `
             <li class="element">
-                <input type="text" value=<%= elementName %> class="element-name form-control">
+                <input type="text" value="<%= elementName %>" class="element-name form-control">
                 <button type="button" class="remove-button btn btn-warning btn-sm" onclick="removeCategoryElement(this)">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
-                <input type="text" value=<%= elementPrice %> class="element-price form-control">
+                <input type="text" value="<%= elementPrice %>" class="element-price form-control">
             </li>
         `;
         var $categoryTemplate = _.template($categoryTemplateHTML);
         var $categoryElementTemplate = _.template($categoryElementTemplateHTML);
+
+        var $counter = 0;
 
         function sortCategories() {
             var mainUl = $('#services-list');
@@ -61,9 +86,12 @@
             });
         }
 
-        function addCategory() {
+        function addCategory(categoryName) {
             var mainUl = $('#services-list');
-            mainUl.prepend($categoryTemplate({categoryName: 'Nowa kategoria'}));
+            if(categoryName == null){
+                categoryName = 'Nowa kategoria';
+            }
+            return $($categoryTemplate({categoryName: categoryName})).appendTo(mainUl);
         }
 
         function removeCategory(categoryRemoveButton){
@@ -73,28 +101,34 @@
             category.remove();
         }
 
-        function addCategoryElement(categoryElementButton){
+        function addNewCategoryElement(categoryElementButton){
             var correspondingUl = $(categoryElementButton).parent().next();
-            correspondingUl.prepend($categoryElementTemplate({elementName: 'Nowy element', elementPrice: 'pół szatana'}));
+            $counter++;
+            correspondingUl.prepend($categoryElementTemplate({elementName: 'Nowy element', elementPrice: $counter}));
+        }
 
+        function addCategoryElement(category, elementName, elementPrice){
+            var correspondingUl = category.next();
+            console.log($categoryElementTemplate({elementName: elementName, elementPrice: $counter}));
+            correspondingUl.append($categoryElementTemplate({elementName: elementName, elementPrice: $counter}));
+            $counter++;
         }
 
         function removeCategoryElement(categoryElementRemoveButton){
             var element = $(categoryElementRemoveButton).parent() ;
             element.remove();
         }
-
     </script>
 
     <script>
         $(document).ready(function () {
+            getServices(getServicesCallback);
             sortCategories();
             var collapsible = $('#services-list').collapsibleList('.header',{
                 animate: true
             });
         });
     </script>
-
 
     <script>
         $("#menu-toggle").click(function(e) {
@@ -144,58 +178,7 @@
                         <button type="button" class="btn btn-primary btn-xl" onclick="addCategory()">Dodaj katergorię</button>
 
                         <ul id="services-list">
-                            <li class="header">
-                                <input type="text" value="Australia" class="element-name form-control">
-                                <button type="button" class="category-button btn btn-warning btn-sm" onclick="removeCategory(this)">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button>
-                                <button type="button" class="category-button btn btn-warning btn-sm" onclick="addCategoryElement(this)">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                </button>
-                            </li>
-                                <ul>
-                                    <li class="element">
-                                        <input type="text" value="Australia" class="element-name form-control">
-                                        <button type="button" class="remove-button btn btn-warning btn-sm">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-                                        <input type="text" value="od 666zł" class="element-price form-control">
-                                    </li>
-                                    <li class="element">
-                                        <input type="text" value="Austria" class="element-name form-control">
-                                        <button type="button" class="remove-button btn btn-warning btn-sm">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-                                        <input type="text" value="od 666zł" class="element-price form-control">
-                                    </li>
-                                </ul>
-                            <li class="header">
-                                <input type="text" value="B" class="element-name form-control">
-                                <button type="button" class="remove-button btn btn-warning btn-sm">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button></li>
-                                <ul>
-                                    <li class="element">Bahamas, The <span class="price">od 666zł</span></li>
-                                    <li class="element">Bahrain <span class="price">od 666zł</span></li>
-                                </ul>
-                            <li class="header">
-                                <input type="text" value="G" class="element-name form-control">
-                                <button type="button" class="remove-button btn btn-warning btn-sm">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button></li>
-                                <ul>
-                                    <li class="element">123, The <span class="price">od 666zł</span></li>
-                                    <li class="element">456 <span class="price">od 666zł</span></li>
-                                </ul>
-                            <li class="header">
-                                <input type="text" value="XXX" class="element-name form-control">
-                                <button type="button" class="remove-button btn btn-warning btn-sm">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button></li>
-                                <ul>
-                                    <li class="element">asdfasdfasf <span class="price">od 666zł</span></li>
-                                    <li class="element">sdfadsfadsfdfdfsfdfsfdasdf <span class="price">od 666zł</span></li>
-                                </ul>
+
                         </ul>
                     </div>
                 </div>
