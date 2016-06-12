@@ -61,3 +61,15 @@ function postServiceCategory(id, categoryName, callbackFunc){
         }
     }
 }
+function deleteServiceCategory(id, callbackFunc){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/deleteServiceCategory.php?ID="+id, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            callbackFunc(response);
+        }
+    }
+}

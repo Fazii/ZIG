@@ -30,7 +30,6 @@
                     addCategoryElement(category, elem.elementNazwa, elem.cena, elem.id);
                 });
             });
-
             sortCategories();
             var collapsible = $('#services-list').collapsibleList('.header',{
                 animate: true
@@ -41,6 +40,10 @@
             //getEvents($currentTable, getEventsCallback);
         }
         function deleteEventCallback(response){
+            //getEvents($currentTable, getEventsCallback);
+        }
+        function deleteServiceCategoryCallback(response){
+            console.log(response);
             //getEvents($currentTable, getEventsCallback);
         }
     </script>
@@ -127,6 +130,8 @@
         function removeCategory(categoryRemoveButton){
             var mainUl = $('#services-list');
             var category = $(categoryRemoveButton).parent();
+            var id = category.data('category-id');
+            deleteServiceCategory(id, deleteServiceCategoryCallback);
             category.next().remove();
             category.remove();
         }
