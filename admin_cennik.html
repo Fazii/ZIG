@@ -15,10 +15,36 @@
 
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+    <script src="lib/underscore-min.js"></script>
     <script src="lib/collapsible-list.js"></script>
 
     <script>
-        function sort() {
+        var $categoryTemplateHTML = `
+            <li class="header">
+                <input type="text" value=<%= categoryName %> class="element-name form-control">
+                    <button type="button" class="category-button btn btn-warning btn-sm" onclick="removeCategory(this)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <button type="button" class="category-button btn btn-warning btn-sm" onclick="addCategoryElement(this)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+            </li>
+            <ul>
+            </ul>
+        `;
+        var $categoryElementTemplateHTML = `
+            <li class="element">
+                <input type="text" value=<%= elementName %> class="element-name form-control">
+                <button type="button" class="remove-button btn btn-warning btn-sm" onclick="removeCategoryElement(this)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <input type="text" value=<%= elementPrice %> class="element-price form-control">
+            </li>
+        `;
+        var $categoryTemplate = _.template($categoryTemplateHTML);
+        var $categoryElementTemplate = _.template($categoryElementTemplateHTML);
+
+        function sortCategories() {
             var mainUl = $('#services-list');
             var headers = mainUl.children('li').get();
 
@@ -35,11 +61,34 @@
             });
         }
 
+        function addCategory() {
+            var mainUl = $('#services-list');
+            mainUl.prepend($categoryTemplate({categoryName: 'Nowa kategoria'}));
+        }
+
+        function removeCategory(categoryRemoveButton){
+            var mainUl = $('#services-list');
+            var category = $(categoryRemoveButton).parent();
+            category.next().remove();
+            category.remove();
+        }
+
+        function addCategoryElement(categoryElementButton){
+            var correspondingUl = $(categoryElementButton).parent().next();
+            correspondingUl.prepend($categoryElementTemplate({elementName: 'Nowy element', elementPrice: 'pół szatana'}));
+
+        }
+
+        function removeCategoryElement(categoryElementRemoveButton){
+            var element = $(categoryElementRemoveButton).parent() ;
+            element.remove();
+        }
+
     </script>
 
     <script>
         $(document).ready(function () {
-            sort();
+            sortCategories();
             var collapsible = $('#services-list').collapsibleList('.header',{
                 animate: true
             });
@@ -92,13 +141,16 @@
                     <div class="col-md-10 col-md-offset-1" id="services">
                         <h2>Dostępne usługi</h2>
 
-                        <button type="button" class="btn btn-primary btn-xl">Dodaj katergorię</button>
+                        <button type="button" class="btn btn-primary btn-xl" onclick="addCategory()">Dodaj katergorię</button>
 
                         <ul id="services-list">
                             <li class="header">
                                 <input type="text" value="Australia" class="element-name form-control">
-                                <button type="button" class="remove-button btn btn-warning btn-sm">
+                                <button type="button" class="category-button btn btn-warning btn-sm" onclick="removeCategory(this)">
                                     <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                                <button type="button" class="category-button btn btn-warning btn-sm" onclick="addCategoryElement(this)">
+                                    <span class="glyphicon glyphicon-plus"></span>
                                 </button>
                             </li>
                                 <ul>
@@ -136,7 +188,7 @@
                                     <li class="element">456 <span class="price">od 666zł</span></li>
                                 </ul>
                             <li class="header">
-                                <input type="text" value="C" class="element-name form-control">
+                                <input type="text" value="XXX" class="element-name form-control">
                                 <button type="button" class="remove-button btn btn-warning btn-sm">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button></li>
