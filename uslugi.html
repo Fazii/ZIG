@@ -35,6 +35,12 @@
                     addCategoryElement(category, elem.elementNazwa, elem.cena);
                 });
             });
+
+            sortCategories();
+            var collapsible = $('#services-list').collapsibleList('.header',{
+                search: $('#search'),
+                animate: true
+            });
         }
     </script>
 
@@ -57,8 +63,8 @@
             var headers = mainUl.children('li').get();
 
             headers.sort(function(a, b) {
-                var compA = $(a).find('.element-name').val().toUpperCase();
-                var compB = $(b).find('.element-name').val().toUpperCase();
+                var compA = $(a).text().toUpperCase();
+                var compB = $(b).text().toUpperCase();
                 return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
             })
 
@@ -105,10 +111,6 @@
     <script>
         $(document).ready(function () {
             getServices(getServicesCallback);
-            sortCategories();
-            var collapsible = $('#services-list').collapsibleList('.header',{
-                animate: true
-            });
         });
     </script>
 </head>
@@ -147,7 +149,7 @@
 <section class="container" id="accordion">
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-10 col-md-offset-1" id="main">
+            <div class="col-md-10 col-md-offset-1" id="services">
                 <h2>Dostępne usługi</h2>
 
                 <div class="form-group">
