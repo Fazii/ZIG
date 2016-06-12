@@ -26,6 +26,10 @@ ul {
     background: #BBBBBB;
     margin-left: 30px;
 }
+#services-list .element span {
+    font-weight: 600;
+    margin-left: 40px;
+}
 
 #main{
     background-color: #F7F7F7;
