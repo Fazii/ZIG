@@ -156,12 +156,65 @@ h2 {
     color: #CDDC39;
 }
 
-#akordeon{
-    margin-top: 30px;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-:focus {outline:none !important;}
-::-moz-focus-inner {border:0 !important;}
+#services-list li{
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px;
+}
+#services-list .header  {
+    background: #CDDC39;
+}
+#services-list .element  {
+    background: #BBBBBB;
+    margin-left: 30px;
+}
+#services-list .element span {
+    font-weight: 600;
+    margin-left: 40px;
+}
+#services{
+    margin-top: 20px;
+    background-color: #F7F7F7;
+}
+#services h2{
+    text-align: center;
+}
+#services button{
+    width: 100%;
+    margin-bottom: 20px;
+}
+#services-list .element-name,
+#services-list .element-price{
+    margin: 2px 0px;
+    padding: 4px 12px;
+    height: 26px;
+    width: 450px;
+    display: inline-block;
+}
+#services-list .element-price{
+    float: right;
+    width: 150px;
+    margin-right: 20px;
+}
+#services-list button{
+    margin: 2px 0px;
+    float: right;
+    width: 35px;
+    height: 26px;
+    margin-right: 20px;
+}
+#services-list button .glyphicon-trash{
+    margin-left: 0px;
+    float: left;
+}
 
 #page-content-wrapper{
     padding-top: 0px !important;
