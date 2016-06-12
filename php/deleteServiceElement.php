@@ -28,5 +28,25 @@ if ($mysqli->multi_query($query)) {
     } while ($mysqli->next_result());
 }
 
+$query="DELETE FROM kategoria_element WHERE elementID = '$id'";
+
+$response .= $query;
+
+if ($mysqli->multi_query($query)) {
+    do {
+        /* store first result set */
+        if ($result = $mysqli->store_result()) {
+            while ($row = $result->fetch_row()) {
+                $response .= $row[0];
+            }
+            $result->free();
+        }
+        /* print divider */
+        if ($mysqli->more_results()) {
+            $response .= "-----------------\n";
+        }
+    } while ($mysqli->next_result());
+}
+
 echo $response;
 ?>
