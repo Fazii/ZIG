@@ -45,7 +45,9 @@
             </ul>
         `;
         var $categoryElementTemplateHTML = `
-            <li class="element"><%= elementName %> <span class="price> <%= elementPrice %> </span></li>
+            <li class="element"> <%= elementName %>
+                <span class="price"> <%= elementPrice %> </span>
+            </li>
         `;
         var $categoryTemplate = _.template($categoryTemplateHTML);
         var $categoryElementTemplate = _.template($categoryElementTemplateHTML);
