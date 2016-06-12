@@ -85,3 +85,15 @@ function deleteServiceCategory(id, callbackFunc){
         }
     }
 }
+function deleteServiceElement(id, callbackFunc){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/deleteServiceElement.php?ID="+id, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            callbackFunc(response);
+        }
+    }
+}

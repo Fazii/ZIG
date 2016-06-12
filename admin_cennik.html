@@ -165,6 +165,8 @@
 
         function removeCategoryElement(categoryElementRemoveButton){
             var element = $(categoryElementRemoveButton).parent() ;
+            var id = element.data('element-id');
+            deleteServiceElement(id, deleteServiceCategoryCallback);
             element.remove();
         }
     </script>
