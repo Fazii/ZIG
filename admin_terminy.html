@@ -50,13 +50,23 @@
 
     </script>
 
+    <!--delete popover on document click-->
+    <script>
+        $(document).on("click", function(e){
+            if($popOver && $("#calendar-element").has($(e.target)).length == 0){
+                console.log("usuwam");
+                $popOver.popover('destroy');
+                $popOver = null;
+            }
+        });
+    </script>
+
     <!--callbacks for db interactions-->
     <script>
         function getEventsCallback(responseJson){
             var json = JSON.parse(responseJson);
             $('#calendar-element').fullCalendar('removeEvents');
             $('#calendar-element').fullCalendar('addEventSource', json);
-            console.log("test");
         }
         function postEventCallback(response){
             getEvents($currentTable, getEventsCallback);
@@ -138,8 +148,11 @@
             $currentEvent = event;
         }
 
-        <!--TODO popover for title-->
         function onSelect ( start, end, jsEvent, view){
+            if($popOver){
+                $popOver.popover('destroy');
+                $popOver = null;
+            }
             var eventID = 'NULL';
             var eventStart = start.format('YYYY-MM-DD HH:mm:ss');
             var eventEnd = end.format('YYYY-MM-DD HH:mm:ss');
@@ -149,6 +162,10 @@
         }
 
         function onEventDrop( event, delta, revertFunc, jsEvent, ui, view ) {
+            if($popOver){
+                $popOver.popover('destroy');
+                $popOver = null;
+            }
             var eventID = event.id;
             var eventStart = event.start.format('YYYY-MM-DD HH:mm:ss');
             var eventEnd = event.end.format('YYYY-MM-DD HH:mm:ss');
@@ -157,6 +174,10 @@
         }
 
         function onEventResize( event, delta, revertFunc, jsEvent, ui, view ) {
+            if($popOver){
+                $popOver.popover('destroy');
+                $popOver = null;
+            }
             var eventID = event.id;
             var eventStart = event.start.format('YYYY-MM-DD HH:mm:ss');
             var eventEnd = event.end.format('YYYY-MM-DD HH:mm:ss');
