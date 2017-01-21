@@ -145,8 +145,12 @@ h2 {
     text-align: center;
 }
 
+#calendar{
+    background-color: #F7F7F7;
+    padding-top: 30px;
+}
+
 #slots-description{
-    margin-top: 30px;
     font-size: 18px;
     border-bottom: 2px solid #CDDC39;
 }

@@ -21,6 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,latin-ext' rel='stylesheet'
           type='text/css'>
 
+    <!--smooth scroll-->
     <script>
         $(function () {
             $('a[href*="#"]:not([href="#"])').click(function () {
@@ -36,10 +37,154 @@
                 }
             });
         });
+
+    </script>
+
+    <!--data base connection-->
+    <script src='js/dbConnection.js'></script>
+
+    <!--calendar-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+    <link rel='stylesheet' href='css/fullcalendar.css'/>
+    <script src='lib/moment.min.js'></script>
+    <script src='lib/fullcalendar.js'></script>
+    <script src='lib/pl.js'></script>
+    <script>
+        $(document).ready(function () {
+            $('#calendar-element').fullCalendar({
+                defaultView: 'agendaWeek',
+                allDaySlot: false,
+                minTime: "06:00:00",
+                maxTime: "22:00:00",
+                firstDay: 1,
+                businessHours: {
+                    start: '7:00',
+                    end: '20:00',
+                    dow: [1, 2, 3, 4, 5, 6]
+                },
+                height: "auto",
+                lang: "pl",
+                hiddenDays: [0],
+                header: {
+                    left:  'today prev,next',
+                    right: 'agendaWeek, month'
+                },
+                allDayDefault: false
+            })
+        });
+    </script>
+    <script>
+        function callbackEcho(responseJson){
+            var json = JSON.parse(responseJson);
+            $('#calendar-element').fullCalendar('removeEvents');
+            $('#calendar-element').fullCalendar('addEventSource', json);
+        }
+    </script>
+    <script>
+            getEvents('klimatyzacje', callbackEcho);
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#ogolne-button').click(function(){
+                getEvents('ogolne', callbackEcho);
+            });
+            $('#klimatyzacje-button').click(function(){
+                getEvents('klimatyzacje', callbackEcho);
+            });
+        });
+    </script>
+
+    <!--accordion -->
+    <script src="lib/collapsible-list.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script>
+        function getServicesCallback(responseJson){
+            var json = JSON.parse(responseJson);
+            $.each(json, function(i, cat){
+                var category = addCategory(cat.kategoriaNazwa);
+                $.each(cat.elementy, function(j, elem){
+                    addCategoryElement(category, elem.elementNazwa, elem.cena);
+                });
+            });
+
+            sortCategories();
+            var collapsible = $('#services-list').collapsibleList('.header',{
+                search: $('#search'),
+                animate: true
+            });
+        }
+    </script>
+    <script>
+        var $categoryTemplateHTML = `
+            <li class="header"><%= categoryName %></li>
+            <ul>
+            </ul>
+        `;
+        var $categoryElementTemplateHTML = `
+            <li class="element"> <%= elementName %>
+                <span class="price"> <%= elementPrice %> </span>
+            </li>
+        `;
+        var $categoryTemplate = _.template($categoryTemplateHTML);
+        var $categoryElementTemplate = _.template($categoryElementTemplateHTML);
+
+        function sortCategories() {
+            var mainUl = $('#services-list');
+            var headers = mainUl.children('li').get();
+
+            headers.sort(function(a, b) {
+                var compA = $(a).text().toUpperCase();
+                var compB = $(b).text().toUpperCase();
+                return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+            })
+
+            $.each(headers, function(idx, header) {
+                var items = $(header).next();
+                mainUl.append(header);
+                mainUl.append(items);
+            });
+        }
+
+        function addCategory(categoryName) {
+            var mainUl = $('#services-list');
+            if(categoryName == null){
+                categoryName = 'Nowa kategoria';
+            }
+            return $($categoryTemplate({categoryName: categoryName})).appendTo(mainUl);
+        }
+
+        function addCategoryElement(category, elementName, elementPrice){
+            var correspondingUl = category.first().next();
+            var catElement = $categoryElementTemplate({elementName: elementName, elementPrice: elementPrice});
+            correspondingUl.append(catElement);
+        }
+    </script>
+    <script>
+        function sort() {
+            var mainUl = $('#services-list');
+            var headers = mainUl.children('li').get();
+
+            headers.sort(function(a, b) {
+                var compA = $(a).text().toUpperCase();
+                var compB = $(b).text().toUpperCase();
+                return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+            })
+
+            $.each(headers, function(idx, header) {
+                var items = $(header).next('li');
+                mainUl.append(header);
+                mainUl.append(items);
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            getServices(getServicesCallback);
+        });
     </script>
 </head>
 
-<body id="top" data-spy="scroll" data-target=".navbar" data-offset="55">
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -59,8 +204,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#top">Start<span class="sr-only">(current)</span></a></li>
-                    <li><a href="terminy.html">Terminy</a></li>
-                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="#offer">Oferta</a></li>
+                    <li><a href="#services_section">Usługi</a></li>
+                    <li><a href="#calendar">Terminy</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </div>
@@ -68,7 +214,7 @@
     </div>
 </nav>
 
-<div class="navbar-spacer"></div>
+<!--<div class="navbar-spacer"></div>-->
 
 <section id="jumbotron">
     <div id="jumbotron-text">
@@ -125,6 +271,67 @@
             </div>
         </div>
     </div>
+</section>
+
+<section id="services_section">
+    <section class="container" id="accordion">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-10 col-md-offset-1" id="services">
+                    <h2>Dostępne usługi</h2>
+
+                    <div class="form-group">
+                        <label>Szukaj usługi: </label>
+                        <input type="text" id="search" placeholder="Wpisz nazwę usługi..." name="search" class="form-control">
+                    </div>
+
+                    <ul id="services-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section id="calendar">
+    <section class="container" id="slots-description">
+        <div class="row">
+            <div class="col-lg-9" id="description">
+                W warsztacie znajdują się dwa stanowiska:
+                <ul>
+                    <li>stanowisko do serwisowania klimatyzacji</li>
+                    <li>stanowisko do ogólnych napraw oraz montażu instalacji gazowej</li>
+                </ul>
+
+                Prace mogą być prowadzone niezależnie od siebie na dwóch stanowiskach, dlatego jeśli zainteresowani są
+                państwo usługami z zakresu serwisowania klimatyzaji, proszę się nie sugerować terminarzem dla
+                stanowiska ogólnego oraz vice versa.
+            </div>
+
+            <div class="col-lg-3" id="exclamation">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendars" class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="slots-picker">
+                    <div id="slots-picker-title"><h2>Wybierz stanowisko</h2></div>
+                    </br>
+                    <button type="button" class="btn btn-primary btn-xl" id="ogolne-button">Ogólne</button>
+                    <button type="button" class="btn btn-primary btn-xl" id="klimatyzacje-button">Klimatyzacja</button>
+                    </br>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div id='calendar-element' class="col-lg-12"></div>
+        </div>
+    </section>
 </section>
 
 <section id="contact">
